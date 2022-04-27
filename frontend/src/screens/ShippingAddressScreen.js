@@ -61,7 +61,7 @@ export default function ShippingAddressScreen() {
       <Helmet>
         <title>Shipping Address</title>
       </Helmet>
-      <div className='gradient-custom pt-5 pb-5'>
+      {/* <div className='gradient-custom pt-5 pb-5'>
         <div class="row mt-3 mx-3" style={{ marginTop: '25px' }}>
           <div class="col-md-3">
             <div style={{ marginTop: '50px', marginLeft: '10px' }} class="text-center">
@@ -95,7 +95,7 @@ export default function ShippingAddressScreen() {
 
 
                         <label class="form-label" for="form9Example1">Full Name</label>
-                        <input type="text" id="form9Example1" class="form-control input-custom" onChange={(e) => setFullName(e.target.value)} placeholder='Name' />
+                        <input type="text" id="form9Example1" class="form-control input-custom w-100" onChange={(e) => setFullName(e.target.value)} placeholder='Name' />
                       </div>
                     </div>
                     <div class="col">
@@ -145,12 +145,75 @@ export default function ShippingAddressScreen() {
         </div >
 
 
-      </div >
+      </div > */}
+
+
+      <div class="container py-5">
+        <div class="row d-flex justify-content-center align-items-center">
+          <div class="col">
+            <div class="card my-4 shadow-3">
+              <div class="row g-0">
+                <div class="col-xl-6 d-xl-block bg-image">
+                  <img src="https://www.odtap.com/wp-content/uploads/2019/03/delivery.png" alt="Sample photo"
+                    class="img-fluid" />
+
+                </div>
+                <div class="col-xl-6">
+                  <form onSubmit={submitHandler} action="">
+                    <div class="card-body p-md-5 text-black">
+                      <h3 class="mb-4 text-uppercase">Delivery Info</h3>
+
+                      <div class="row">
+                        <div class=" mb-4">
+                          <div class="form-outline">
+                            <input type="text" id="form3Example1m" class="form-control form-control-lg" onChange={(e) => setFullName(e.target.value)} placeholder='Name' />
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <input type="text" id="form3Example8" class="form-control form-control-lg" onChange={(e) => setAddress(e.target.value)} placeholder='Address' />
+
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <input type="number" id="form3Example3" class="form-control form-control-lg" onChange={(e) => setPostalCode(e.target.value)} placeholder='Postal Code' />
+
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <input type="text" id="form3Example2" class="form-control form-control-lg" onChange={(e) => setCity(e.target.value)} placeholder='City' />
+
+                      </div>
+                      <div class="form-outline mb-4">
+                        <input type="text" id="form3Example2" class="form-control form-control-lg" onChange={(e) => setCountry(e.target.value)} placeholder='Country' />
+
+                      </div>
+
+                      <div class="d-flex justify-content-end pt-3">
+                        <Link to='/cart'>
+                          <div class="text-center">
+                            <button type="submit" class="btn btn-warning btn-sm back-button">Go back</button>
+                          </div>
+                        </Link>
+                        <button type="submit" class="btn btn-danger btn-sm ms-2"
+                          style={{ color: "white " }}>Place order</button>
+                      </div>
+
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 
 
 
-    </div>
+    </div >
   );
 }

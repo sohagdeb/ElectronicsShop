@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import { useNavigate } from 'react-router-dom';
+import '../index.css'
 
 export default function SearchBox() {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ export default function SearchBox() {
   };
 
   return (
-    <Form className="d-flex mx-auto w-50 mb-3" onSubmit={submitHandler}>
+    <Form className="d-flex mx-auto mb-3 search" onSubmit={submitHandler}>
       <InputGroup>
         <FormControl
           type="text"

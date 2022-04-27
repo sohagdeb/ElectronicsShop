@@ -118,7 +118,7 @@ export default function SearchScreen() {
         <Col md={3}>
 
           <div>
-            <ul style={{ listStyleType: 'none' }}>
+            <ul className='me-4' style={{ listStyleType: 'none' }}>
               <h3 className='text-center'>Category</h3>
               <li className='bg-warning text-center mb-2 border border-danger' >
 
@@ -143,7 +143,7 @@ export default function SearchScreen() {
           </div>
           <div>
 
-            <ul style={{ listStyleType: 'none' }}>
+            <ul className='me-4' style={{ listStyleType: 'none' }}>
               <h3 className='text-center'>Price</h3>
               <li className='bg-warning text-center mb-2 border border-danger'>
                 <Link style={{ textDecoration: 'none', color: 'black', fontSize: '20px' }}
