@@ -33,6 +33,8 @@ import ProductEditScreen from './screens/ProductEditScreen';
 import OrderListScreen from './screens/OrderListScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
+import AllProducts from './screens/AllProducts';
+import AboutUs from './screens/AboutUs';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -95,6 +97,9 @@ function App() {
                   <Link to="/search" className="nav-link text-light">
                     Products
                   </Link>
+                  <Link to="/about" className="nav-link text-light">
+                    About Us
+                  </Link>
                   {userInfo ? (
                     <NavDropdown title={userInfo.name} id="basic-nav-dropdown text-light">
                       <LinkContainer to="/orderhistory">
@@ -143,6 +148,8 @@ function App() {
               <Route path="/search" element={<SearchScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
               <Route path="/signup" element={<SignupScreen />} />
+              <Route path="/products" element={<AllProducts />} />
+              <Route path="/about" element={<AboutUs />} />
 
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
               <Route

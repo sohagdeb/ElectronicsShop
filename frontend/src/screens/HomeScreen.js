@@ -83,12 +83,15 @@ function HomeScreen() {
 
         <SearchBox />
         <Row>
-          {products.map((product) => (
+          {products.slice(0, 9).map((product) => (
             <Col key={product.slug} sm={12} md={6} lg={4} className="mb-3">
               <Product product={product}></Product>
             </Col>
           ))}
         </Row>
+        <Link to='/products'>
+          <button className='btn btn-warning'>See More </button>
+        </Link>
       </div>
 
 

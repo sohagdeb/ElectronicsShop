@@ -108,6 +108,7 @@ export default function SearchScreen() {
     const sortOrder = filter.order || order;
     return `/search?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
   };
+  console.log(products, 'hello');
   return (
     <div>
       <Helmet>
@@ -181,6 +182,7 @@ export default function SearchScreen() {
                 {products.map((product) => (
                   <Col sm={12} lg={4} className="mb-3" key={product._id}>
                     <ProductSearch product={product}></ProductSearch>
+
                   </Col>
                 ))}
               </Row>
