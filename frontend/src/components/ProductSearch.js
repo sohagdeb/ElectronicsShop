@@ -32,7 +32,7 @@ const ProductSearch = (props) => {
         <div class="card homecard" >
             <div class="row g-0" >
                 <div class="col-md-3 col-3">
-                    <img src={product.image} width='150px' height='150px' class="img-fluid rounded-start" alt="..." />
+                    <img src={product.image} width='150px' height='150px' class="img-fluid rounded-start homecardimg" alt="..." />
                 </div>
                 <div class="col-md-6 col-6">
                     <div class="card-body">

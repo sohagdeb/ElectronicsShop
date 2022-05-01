@@ -204,7 +204,7 @@ function HomeScreen() {
 
 
 
-      <section class="mb-4 p-2 container" style={{ boxShadow: ' rgba(0, 0, 0, 0.35) 0px 5px 15px' }} >
+      <section class="mb-4 py-2 container" style={{ boxShadow: ' rgba(0, 0, 0, 0.35) 0px 5px 15px' }} >
 
 
         <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
