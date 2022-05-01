@@ -136,7 +136,7 @@ export default function ProductListScreen() {
   };
 
   return (
-    <div>
+    <div className='container'>
       <Row>
         <Col>
           <h1>Products</h1>

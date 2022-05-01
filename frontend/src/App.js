@@ -35,6 +35,7 @@ import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import AllProducts from './screens/AllProducts';
 import AboutUs from './screens/AboutUs';
+import HomeProduct from './components/HomeProduct';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -141,7 +142,7 @@ function App() {
           </Navbar>
         </header>
         <main>
-          <Container className="mt-3">
+          <div>
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
@@ -150,6 +151,7 @@ function App() {
               <Route path="/signup" element={<SignupScreen />} />
               <Route path="/products" element={<AllProducts />} />
               <Route path="/about" element={<AboutUs />} />
+              <Route path="/homeproduct" element={<HomeProduct />} />
 
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
               <Route
@@ -225,7 +227,7 @@ function App() {
 
               <Route path="/" element={<HomeScreen />} />
             </Routes>
-          </Container>
+          </div>
         </main>
 
 

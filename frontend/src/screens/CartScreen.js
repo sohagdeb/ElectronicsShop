@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './cartScreen.css'
 
 export default function CartScreen() {
   const navigate = useNavigate();
@@ -37,72 +38,168 @@ export default function CartScreen() {
   };
 
   return (
-    <div>
+    <div className='container mt-3'>
       <Helmet>
         <title>Shopping Cart</title>
       </Helmet>
 
-      <Row>
+      <Row >
         <Col md={12} lg={12}>
           {cartItems.length === 0 ? (
             <MessageBox>
               Cart is empty. <Link to="/search">Go Shopping</Link>
             </MessageBox>
           ) : (
-            <ListGroup>
-              {cartItems.map((item) => (
-                <ListGroup.Item key={item._id} style={{ backgroundColor: '#52017d' }}>
-                  <Row className="align-items-center">
-                    <Col md={2} xs={2}>
-                      <img
-                        style={{ width: '80px', height: '80px' }}
-                        src={item.image}
-                        alt={item.name}
-                        className="img-fluid rounded img-thumbnail"
-                      ></img>{' '}
 
-                    </Col>
 
-                    <Col md={3} xs={2}>
-                      <Link to={`/product/${item.slug}`} style={{ textDecoration: 'none' }} className='text-light'>{item.name}</Link>
-                    </Col>
-                    <Col md={3} xs={4}>
-                      <Button
-                        onClick={() =>
-                          updateCartHandler(item, item.quantity - 1)
-                        }
-                        variant="light"
-                        disabled={item.quantity === 1}
-                      >
-                        -
-                      </Button>{' '}
-                      <span className='text-light'>{item.quantity}</span>{' '}
-                      <Button
-                        variant="light"
-                        onClick={() =>
-                          updateCartHandler(item, item.quantity + 1)
-                        }
-                        disabled={item.quantity === item.countInStock}
-                      >
-                        +
-                      </Button>
-                    </Col>
-                    <Col md={2} xs={2} className='text-light'>${item.price}</Col>
-                    <Col md={2} xs={2}>
-                      <Button
-                        onClick={() => removeItemHandler(item)}
-                        variant="dark"
-                      >
-                        <i className="fas fa-trash text-danger"></i>
-                      </Button>
-                    </Col>
-                  </Row>
-                </ListGroup.Item>
-              ))}
-            </ListGroup>
-          )}
-        </Col>
-        <Col md={4} className='text-center mx-auto mt-3'>
+
+
+
+
+
+            <div class="card4">
+              <div class="row cartrow">
+                <div class="col-md-8 cart4">
+                  <div class="title">
+                    <div class="row cartrow">
+                      <div class="col">
+                        <h4><b>Shopping Cart</b></h4>
+                      </div>
+
+                    </div>
+                  </div>
+                  {cartItems.map((item) => (
+                    <div class="row cartrow border-top border-bottom">
+                      <div class="row cartrow main align-items-center">
+                        <div class="col-md-2 col-2"><img class="img-fluid cartimg" src={item.image} /></div>
+                        <div class="col-3 col-md-3">
+                          <div class="row cartrow ">{item.name}</div>
+                        </div>
+                        <div class="col-1 col-md-1 mb-3">
+                          <button
+                            className='btn btn-sm bg-light'
+                            onClick={() =>
+                              updateCartHandler(item, item.quantity - 1)
+                            }
+
+                            disabled={item.quantity === 1}
+                          >
+                            -
+                          </button>{' '}
+                        </div>
+                        <div className="col-1 col-md-1 text-center">
+                          <span className='text-dark '>{item.quantity}</span>{' '}
+                        </div>
+                        <div className="col-1 col-md-1 mb-3">
+
+                          <button
+                            className='btn btn-sm bg-light'
+
+                            onClick={() =>
+                              updateCartHandler(item, item.quantity + 1)
+                            }
+                            disabled={item.quantity === item.countInStock}
+                          >
+                            +
+                          </button>
+                        </div>
+
+                        <div class="col-md-3 col-2 text-center">৳ {item.price} </div>
+                        <div className="col-md-1 col-1">
+                          <Button
+                            onClick={() => removeItemHandler(item)}
+                            variant="dark"
+                          >
+                            X
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div class="col-md-4 summary">
+                  <div>
+                    <h5><b>Summary</b></h5>
+                  </div>
+
+
+                  <div class="row cartrow" style={{
+                    borderTop: '1px solid rgba(0,0,0,.1)', padding: '2vh 0'
+                  }}>
+                    <div class="col">TOTAL PRICE</div>
+                    <div class="col text-right"> ৳{cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}</div>
+                  </div> <Button
+                    type="button"
+                    variant="danger"
+                    onClick={checkoutHandler}
+                    disabled={cartItems.length === 0}
+                  >
+                    Proceed to Checkout
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+            // <ListGroup.Item key={item._id} style={{ backgroundColor: '#52017d' }}>
+            //   <Row className="align-items-center">
+            //     <Col md={2} xs={2}>
+            //       <img
+            //         style={{ width: '80px', height: '80px' }}
+            //         src={item.image}
+            //         alt={item.name}
+            //         className="img-fluid rounded img-thumbnail"
+            //       ></img>{' '}
+
+            //     </Col>
+
+            //     <Col md={3} xs={2}>
+            //       <Link to={`/product/${item.slug}`} style={{ textDecoration: 'none' }} className='text-light'>{item.name}</Link>
+            //     </Col>
+            //     <Col md={3} xs={4}>
+            //       <Button
+            //         onClick={() =>
+            //           updateCartHandler(item, item.quantity - 1)
+            //         }
+            //         variant="light"
+            //         disabled={item.quantity === 1}
+            //       >
+            //         -
+            //       </Button>{' '}
+            //       <span className='text-light'>{item.quantity}</span>{' '}
+            //       <Button
+            //         variant="light"
+            //         onClick={() =>
+            //           updateCartHandler(item, item.quantity + 1)
+            //         }
+            //         disabled={item.quantity === item.countInStock}
+            //       >
+            //         +
+            //       </Button>
+            //     </Col>
+            //     <Col md={2} xs={2} className='text-light'>${item.price}</Col>
+            //     <Col md={2} xs={2}>
+            //       <Button
+            //         onClick={() => removeItemHandler(item)}
+            //         variant="dark"
+            //       >
+            //         <i className="fas fa-trash text-danger"></i>
+            //       </Button>
+            //     </Col>
+            //   </Row>
+            // </ListGroup.Item>
+
+
+          )
+          }
+        </Col >
+
+
+        {/* <Col md={4} className='text-center mx-auto mt-3'>
           <Card style={{ height: '250px' }}>
             <Card.Body>
               <ListGroup variant="flush">
@@ -126,8 +223,10 @@ export default function CartScreen() {
               </ListGroup>
             </Card.Body>
           </Card>
-        </Col>
-      </Row>
-    </div>
+        </Col> */}
+
+
+      </Row >
+    </div >
   );
 }

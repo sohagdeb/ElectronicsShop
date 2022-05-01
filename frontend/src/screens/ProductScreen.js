@@ -73,6 +73,7 @@ function ProductScreen() {
     const existItem = cart.cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${product._id}`);
+
     if (data.countInStock < quantity) {
       window.alert('Sorry. Product is out of stock');
       return;
@@ -152,7 +153,14 @@ function ProductScreen() {
                   <button class="bg-danger text-light">Unavailable</button>
                 )}</h5>
 
-                <button onClick={addToCartHandler} class="add-to-cart btn btn-default" type="button">Add to Cart</button>
+
+
+                {product.countInStock > 0 ? (
+                  <button onClick={addToCartHandler} class="add-to-cart btn btn-default" type="button">Add to Cart</button>
+                ) : (
+                  <button class="add-to-cart btn btn-default" type="button" disabled>Add to Cart</button>
+                )}
+
               </div>
             </div>
           </div>

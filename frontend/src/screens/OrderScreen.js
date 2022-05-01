@@ -209,7 +209,7 @@ export default function OrderScreen() {
   ) : error ? (
     <MessageBox variant="danger">{error}</MessageBox>
   ) : (
-    <div>
+    <div className='container'>
       <Helmet>
         <title>Order {orderId}</title>
       </Helmet>
@@ -304,11 +304,6 @@ export default function OrderScreen() {
                     />
                   </Elements>
                 )}
-
-
-
-
-
                 {userInfo.isAdmin && (
                   <ListGroup.Item>
                     {loadingDeliver && <LoadingBox></LoadingBox>}

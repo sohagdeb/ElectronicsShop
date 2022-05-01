@@ -10,6 +10,7 @@ import '../index.css';
 import Carousel from 'react-bootstrap/Carousel'
 import SearchBox from '../components/SearchBox';
 import { Link } from 'react-router-dom';
+import HomeProduct from '../components/HomeProduct';
 
 
 const reducer = (state, action) => {
@@ -53,6 +54,7 @@ function HomeScreen() {
       <Carousel fade>
         <Carousel.Item>
           <img
+
             className="d-block w-100 carousel-css"
             src="https://thumbs.dreamstime.com/b/vector-banner-iphone-vinnytsia-ukraine-september-illustration-app-web-presentation-design-229970813.jpg"
             alt="First slide"
@@ -70,6 +72,7 @@ function HomeScreen() {
         </Carousel.Item>
         <Carousel.Item>
           <img
+
             className="d-block w-100 carousel-css"
             src="https://www.kindpng.com/picc/m/213-2136825_mac-model-banner-apple-mac-pro-banners-hd.png"
             alt="Third slide"
@@ -77,9 +80,10 @@ function HomeScreen() {
 
         </Carousel.Item>
       </Carousel>
+      <SearchBox></SearchBox>
       <h1 className='text-center mt-3'>Products</h1>
       <br />
-      <div className="products mt-1">
+      {/* <div className="products mt-1">
 
         <SearchBox />
         <Row>
@@ -92,7 +96,15 @@ function HomeScreen() {
         <Link to='/products'>
           <button className='btn btn-warning'>See More </button>
         </Link>
+      </div> */}
+
+      <HomeProduct></HomeProduct>
+      <div className='text-center'>
+        <Link to='/products'>
+          <button className='btn btn-warning'>See More </button>
+        </Link>
       </div>
+
 
 
 
@@ -187,7 +199,12 @@ function HomeScreen() {
 
 
 
-      <section class="mb-4 p-2" style={{ boxShadow: ' rgba(0, 0, 0, 0.35) 0px 5px 15px' }} >
+
+
+
+
+
+      <section class="mb-4 p-2 container" style={{ boxShadow: ' rgba(0, 0, 0, 0.35) 0px 5px 15px' }} >
 
 
         <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>

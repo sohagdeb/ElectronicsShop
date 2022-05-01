@@ -4,7 +4,7 @@ import './AboutUs.css'
 
 const AboutUs = () => {
     return (
-        <div>
+        <div className='container'>
             <div className='row' style={{ boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" }}>
                 <div className='col-lg-6'>
                     <img src="https://www.mobiletechtalk.co.uk/wp-content/uploads/2020/10/mobiletechtalk.co_.uk-image3.jpeg" className='img-fluid' alt="" />

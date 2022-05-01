@@ -39,7 +39,7 @@ const AllProducts = () => {
         fetchData();
     }, []);
     return (
-        <div>
+        <div className='container'>
             <Row>
                 {products.map((product) => (
                     <Col key={product.slug} sm={12} md={6} lg={4} className="mb-3">

@@ -48,7 +48,7 @@ export default function DashboardScreen() {
   }, [userInfo]);
 
   return (
-    <div>
+    <div className='container'>
 
       {loading ? (
         <LoadingBox />

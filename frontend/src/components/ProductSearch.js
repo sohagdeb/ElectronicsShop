@@ -29,23 +29,35 @@ const ProductSearch = (props) => {
         });
     };
     return (
-        <Col style={{ backgroundColor: '#52017D' }}>
-            <div class="text-center">
-                <img className='mt-3' width='200px' height='150px' src={product.image} alt="Alternate Text" />
-            </div>
-            <div class="card-body text-center">
-                <div class="m-auto text-light">
-                    <Rating rating={product.rating} numReviews={product.numReviews} />
-                    <h5>{product.name}</h5>
-                    <p>${product.price}</p>
+        <div class="card homecard" >
+            <div class="row g-0" >
+                <div class="col-md-3 col-3">
+                    <img src={product.image} width='150px' height='150px' class="img-fluid rounded-start" alt="..." />
                 </div>
-                <Link to={`/product/${product.slug}`}>
-                    <button type="button" class="btn btn-danger btn-sm">View Product</button>
-                </Link>
-                <button onClick={() => addToCartHandler(product)} className="button btn btn-warning btn-sm">Add to Cart</button>
-            </div>
-        </Col>
+                <div class="col-md-6 col-6">
+                    <div class="card-body">
+                        <h5 class="card-title">{product.name}</h5>
 
+                        <div class="ratings">  <Rating rating={product.rating} numReviews={product.numReviews} />
+                            <p><small className='text-danger'>only {product.countInStock} left in stock - order soon</small></p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-3">
+                    <h4 class="card-text">৳{product.price}</h4>
+                    <Link to={`/product/${product.slug}`}>
+                        <button type="button" class="btn btn-danger btn-sm">View Product</button>
+                    </Link>
+
+                    {product.countInStock > 0 ? (
+                        <button onClick={() => addToCartHandler(product)} className="button btn btn-warning btn-sm mt-2">Add to Cart</button>
+                    ) : (
+                        <button className="button btn btn-warning btn-sm mt-2" disabled>Add to Cart</button>
+                    )}
+                </div>
+            </div>
+        </div>
     );
 };
 

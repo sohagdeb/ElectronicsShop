@@ -149,7 +149,7 @@ button.thumbnail {
 
 /* home screen css */
 .carousel-css {
-  height: 500px;
+  height: 600px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -185,12 +185,13 @@ button.thumbnail {
 @media only screen and (max-width: 600px) {
   .image {
     height: 100px;
-    width: 100px;
+    width: 80px;
+
   }
 
   .card1 {
-    height: 280px;
-    width: 330px;
+    height: 250px;
+    width: 300px;
   }
 
   .description-side {
@@ -676,4 +677,28 @@ button.thumbnail {
   .search {
     width: 80%
   }
+}
+
+/* productsearch */
+
+.homecard {
+  background-color: #FFFFFF;
+  height: 280px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.homecard:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/* productSearch2 */
+
+.productsearch2 {
+  height: 280px;
+  background-color: #FFFFFF;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.productsearch2:hover {
+  background-color: #DDE5F6;
 }

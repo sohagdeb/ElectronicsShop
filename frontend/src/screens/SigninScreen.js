@@ -1,14 +1,12 @@
 import Axios from 'axios';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet-async';
 import { useContext, useEffect, useState } from 'react';
 import { Store } from '../Store';
 import { toast } from 'react-toastify';
 import { getError } from '../utils';
 import '../index.css'
+
 
 export default function SigninScreen() {
   const navigate = useNavigate();
@@ -42,8 +40,15 @@ export default function SigninScreen() {
     }
   }, [navigate, redirect, userInfo]);
 
+
+
+
+
+
+
+
   return (
-    <div >
+    <div className='container' >
       <Helmet>
         <title>Sign In</title>
       </Helmet>
@@ -63,7 +68,7 @@ export default function SigninScreen() {
                   placeholder="Email" />
               </div>
               <div class="mb-3">
-                <input onChange={(e) => setPassword(e.target.value)} type="password" class="form-control" id="password" placeholder="password" />
+                <input onChange={(e) => setPassword(e.target.value)} type="password" class="form-control" id="psw" name='psw' placeholder="password" />
               </div>
               <div class="text-center"><button type="submit" class="btn btn-color1 px-5 mb-5 w-100 text-light">Sign in</button></div>
               <div id="emailHelp" class="form-text text-center mb-5 text-dark">Not
@@ -73,7 +78,13 @@ export default function SigninScreen() {
             </form>
           </div>
 
+
         </div>
+
+
+
+
+
       </div>
     </div>
   );

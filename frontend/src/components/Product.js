@@ -30,12 +30,12 @@ function Product(props) {
   };
 
   return (
-    <Col className='card1 mx-auto'>
+    <Col className=' card1 mx-auto'>
       <div className="row">
-        <div className='col-lg-5 col-4'>
-          <img className='mt-3 image' src={product.image} alt="" />
+        <div className='col-lg-5 col-3'>
+          <img className='mt-5 image' src={product.image} alt="" />
         </div>
-        <div className='description-side col-lg-7 col-8 mt-3'>
+        <div className='description-side col-lg-7 col-9 mt-3'>
           <h5 class="main-heading  text-dark me-2">{product.name}</h5>
           <p>${product.price}</p>
           <div class="ratings">  <Rating rating={product.rating} numReviews={product.numReviews} />
@@ -43,7 +43,12 @@ function Product(props) {
             <Link to={`/product/${product.slug}`}>
               <button type="button" class="btn btn-danger btn-sm">View Product</button>
             </Link>
-            <button onClick={() => addToCartHandler(product)} className="button btn btn-warning btn-sm">Add to Cart</button>
+            {product.countInStock > 0 ? (
+              <button onClick={() => addToCartHandler(product)} className="button btn btn-warning btn-sm">Add to Cart</button>
+            ) : (
+              <button className="button btn btn-warning btn-sm" disabled>Add to Cart</button>
+            )}
+
           </div>
 
 

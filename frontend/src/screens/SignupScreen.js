@@ -50,7 +50,7 @@ export default function SignupScreen() {
   }, [navigate, redirect, userInfo]);
 
   return (
-    <div >
+    <div className='container'>
       <Helmet>
         <title>Sign Up</title>
       </Helmet>
@@ -69,11 +69,11 @@ export default function SignupScreen() {
                   placeholder="Name" required />
               </div>
               <div class="mb-3">
-                <input onChange={(e) => setEmail(e.target.value)} type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                <input onChange={(e) => setEmail(e.target.value)} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="email" class="form-control" id="email" aria-describedby="emailHelp"
                   placeholder="Email" required />
               </div>
               <div class="mb-3">
-                <input onChange={(e) => setPassword(e.target.value)} type="password" class="form-control" id="password" placeholder="Password" required />
+                <input onChange={(e) => setPassword(e.target.value)} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" type="password" class="form-control" id="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Password" required />
               </div>
               <div class="mb-3">
                 <input onChange={(e) => setConfirmPassword(e.target.value)} type="password" class="form-control" id="password" placeholder="Confirm Password" required />

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import { Store } from '../Store';
 import '../index.css'
+import HomeProduct from '../components/HomeProduct';
 
 export default function PaymentMethodScreen() {
   const navigate = useNavigate();
@@ -42,6 +43,7 @@ export default function PaymentMethodScreen() {
           </Form>
         </div>
       </div>
+
     </div>
   );
 }

@@ -9,10 +9,12 @@ import Col from 'react-bootstrap/Col';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Button from 'react-bootstrap/Button';
-import Product from '../components/Product';
+
 import LinkContainer from 'react-router-bootstrap/LinkContainer';
 import ProductSearch from '../components/ProductSearch';
 import '../index.css'
+import ProductSearch2 from '../components/ProductSearch2';
+import SearchBox from '../components/SearchBox';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -108,9 +110,9 @@ export default function SearchScreen() {
     const sortOrder = filter.order || order;
     return `/search?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
   };
-  console.log(products, 'hello');
+
   return (
-    <div>
+    <div className='container'>
       <Helmet>
         <title>Products</title>
       </Helmet>
@@ -177,11 +179,12 @@ export default function SearchScreen() {
               {products.length === 0 && (
                 <MessageBox>No Product Found</MessageBox>
               )}
-
+              <SearchBox></SearchBox>
               <Row>
+
                 {products.map((product) => (
-                  <Col sm={12} lg={4} className="mb-3" key={product._id}>
-                    <ProductSearch product={product}></ProductSearch>
+                  <Col xs={6} lg={3} className="mb-3" key={product._id}>
+                    <ProductSearch2 product={product}></ProductSearch2>
 
                   </Col>
                 ))}
