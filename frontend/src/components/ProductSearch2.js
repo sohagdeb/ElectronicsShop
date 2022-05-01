@@ -66,25 +66,19 @@ const ProductSearch2 = (props) => {
             <div className='col-md-12 col-12 productsearch2' >
                 <Link to={`/product/${product.slug}`} style={{ textDecoration: 'none' }}>
                     <div className='text-center'>
-                        <img className='mt-2' src={product.image} width='150px' height='180px' alt="" />
+                        <img className='mt-2' src={product.image} width='150px' height='150px' alt="" />
                     </div>
                 </Link>
-                <div className='col-md-12 col-12'>
-                    <div className="row">
-                        <div className='col-md-7 col-7 ms-2'>
-                            <p className='text-dark'>{product.name}</p>
-                            <p style={{ color: '#FF4436', fontWeight: '600, Semi Bold', fontSize: '20px' }}>৳{product.price}</p>
-                        </div>
-                        <div className='col-md-4 col-4'>
+                <div className='col-md-12 col-12 text-center'>
+                    <p className='text-dark'>{product.name}</p>
+                    <p style={{ color: '#FF4436', fontWeight: '600, Semi Bold', fontSize: '20px' }}>৳{product.price}</p>
+                    {product.countInStock > 0 ? (
+                        <button onClick={() => addToCartHandler(product)} className="button btn btn-warning btn-sm">Add to Cart</button>
+                    ) : (
+                        <button className="button btn btn-warning btn-sm" disabled>Add to Cart</button>
+                    )}
 
 
-                            {product.countInStock > 0 ? (
-                                <button onClick={() => addToCartHandler(product)} className="button btn btn-warning btn-sm mt-2">Cart</button>
-                            ) : (
-                                <button className="button btn btn-warning btn-sm mt-2" disabled>Cart</button>
-                            )}
-                        </div>
-                    </div>
                 </div>
             </div>
 

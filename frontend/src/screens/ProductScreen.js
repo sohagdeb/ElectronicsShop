@@ -122,7 +122,7 @@ function ProductScreen() {
   ) : error ? (
     <MessageBox variant="danger">{error}</MessageBox>
   ) : (
-    <div >
+    <div className='container'>
       <Helmet>
         <title>{product.name}</title>
       </Helmet>
