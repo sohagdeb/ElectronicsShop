@@ -43,7 +43,7 @@ const AllProducts = () => {
         <div className='container'>
             <Row>
                 {products.map((product) => (
-                    <Col key={product.slug} sm={6} md={3} lg={3} className="mb-3 mt-3">
+                    <Col key={product.slug} xs={6} sm={6} md={3} lg={3} className="mb-3 mt-3">
                         <ProductSearch2 product={product}></ProductSearch2>
                     </Col>
                 ))}
