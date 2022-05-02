@@ -56,7 +56,7 @@ const CheckoutForm = ({ product }) => {
                     }}
                 />
                 <button type="submit" disabled={!stripe}>
-                    Pay${product.totalPrice}
+                    Pay ৳{product.totalPrice}
                 </button>
             </form>
             {

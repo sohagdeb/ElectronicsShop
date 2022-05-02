@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
 import logger from 'use-reducer-logger';
 import Product from '../components/Product';
+import ProductSearch2 from '../components/ProductSearch2';
 import '../index.css'
 
 const reducer = (state, action) => {
@@ -42,8 +43,8 @@ const AllProducts = () => {
         <div className='container'>
             <Row>
                 {products.map((product) => (
-                    <Col key={product.slug} sm={12} md={6} lg={4} className="mb-3">
-                        <Product product={product}></Product>
+                    <Col key={product.slug} sm={6} md={3} lg={3} className="mb-3 mt-3">
+                        <ProductSearch2 product={product}></ProductSearch2>
                     </Col>
                 ))}
             </Row>

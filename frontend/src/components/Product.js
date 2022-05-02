@@ -37,7 +37,7 @@ function Product(props) {
         </div>
         <div className='description-side col-lg-7 col-9 mt-3'>
           <h5 class="main-heading  text-dark me-2">{product.name}</h5>
-          <p>${product.price}</p>
+          <p>৳{product.price}</p>
           <div class="ratings">  <Rating rating={product.rating} numReviews={product.numReviews} />
             <p><small className='text-danger'>only {product.countInStock} left in stock - order soon</small></p>
             <Link to={`/product/${product.slug}`}>

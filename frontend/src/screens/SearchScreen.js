@@ -39,16 +39,16 @@ const reducer = (state, action) => {
 
 const prices = [
   {
-    name: '$1 to $500',
-    value: '1-500',
+    name: '৳1 to ৳50000',
+    value: '1-50000',
   },
   {
-    name: '$500 to $1000',
-    value: '500-1000',
+    name: '৳50000 to ৳100000',
+    value: '50000-100000',
   },
   {
-    name: '$1000 to $1500',
-    value: '1000-1500',
+    name: '৳100000 to ৳200000',
+    value: '100000-200000',
   },
 ];
 

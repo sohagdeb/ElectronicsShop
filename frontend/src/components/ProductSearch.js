@@ -31,10 +31,10 @@ const ProductSearch = (props) => {
     return (
         <div class="card homecard" >
             <div class="row g-0" >
-                <div class="col-md-3 col-3">
+                <div class="col-md-3 col-2" >
                     <img src={product.image} width='150px' height='150px' class="img-fluid rounded-start homecardimg" alt="..." />
                 </div>
-                <div class="col-md-6 col-6">
+                <div class="col-md-6 col-7">
                     <div class="card-body">
                         <h5 class="card-title">{product.name}</h5>
 
@@ -45,15 +45,15 @@ const ProductSearch = (props) => {
                     </div>
                 </div>
                 <div class="col-md-3 col-3">
-                    <h4 class="card-text">৳{product.price}</h4>
+                    <p class="card-text">৳{product.price}</p>
                     <Link to={`/product/${product.slug}`}>
-                        <button type="button" class="btn btn-danger btn-sm">View Product</button>
+                        <button type="button" class="btn btn-danger btn-sm homecardbtn">View Product</button>
                     </Link>
 
                     {product.countInStock > 0 ? (
-                        <button onClick={() => addToCartHandler(product)} className="button btn btn-warning btn-sm mt-2">Add to Cart</button>
+                        <button onClick={() => addToCartHandler(product)} className="button btn btn-warning btn-sm mt-2 homecardbtn">Add to Cart</button>
                     ) : (
-                        <button className="button btn btn-warning btn-sm mt-2" disabled>Add to Cart</button>
+                        <button className="button btn btn-warning btn-sm mt-2 homecardbtn" disabled>Add to Cart</button>
                     )}
                 </div>
             </div>
