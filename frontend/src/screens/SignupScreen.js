@@ -65,7 +65,7 @@ export default function SignupScreen() {
                   width="200px" alt="profile" />
               </div>
               <div class="mb-3">
-                <input onChange={(e) => setName(e.target.value)} type="text" class="form-control" id="name" aria-describedby="name"
+                <input onChange={(e) => setName(e.target.value)} pattern='[A-Za-z]{2,12}' type="text" class="form-control" id="name" aria-describedby="name"
                   placeholder="Name" required />
               </div>
               <div class="mb-3">
