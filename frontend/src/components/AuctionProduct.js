@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Store } from '../Store';
 import Rating from './Rating';
+import '../index.css'
 
 const AuctionProduct = (props) => {
     const { product } = props;
@@ -37,7 +38,7 @@ const AuctionProduct = (props) => {
                             <h5 class="card-title">{product.name}</h5>
 
                             <p class="card-text">৳{product.price}</p>
-                            <input type="number" name="" id="" />
+                            <input className='auction-input' type="number" name="" id="" />
                             <br />
                             <button type="submit" class="btn btn-danger btn-sm mt-2">Bid</button>
 
