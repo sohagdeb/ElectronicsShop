@@ -1,6 +1,7 @@
 import { useStripe, useElements, PaymentElement, CardElement } from '@stripe/react-stripe-js';
 
 import React, { useState } from 'react';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 const CheckoutForm = ({ product }) => {
     // console.log(product.totalPrice);
@@ -10,7 +11,7 @@ const CheckoutForm = ({ product }) => {
 
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
-
+    const navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -31,6 +32,7 @@ const CheckoutForm = ({ product }) => {
         } else {
             setError('');
             setSuccess('Payment Sucessfull ');
+            navigate('/success');
         }
 
 
@@ -64,7 +66,9 @@ const CheckoutForm = ({ product }) => {
 
             }
             {
-                success && <p style={{ color: 'green' }}>{success}</p>
+                success && <p style={{ color: 'green' }}>{success}
+
+                </p>
             }
         </div>
     );

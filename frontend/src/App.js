@@ -36,6 +36,8 @@ import UserEditScreen from './screens/UserEditScreen';
 import AllProducts from './screens/AllProducts';
 import AboutUs from './screens/AboutUs';
 import HomeProduct from './components/HomeProduct';
+import ContactForm from './components/ContactForm';
+import PaymentSuccess from './components/PaymentSuccess';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -64,6 +66,7 @@ function App() {
   }, []);
   return (
     <BrowserRouter>
+
       <div
         className={
           sidebarIsOpen
@@ -100,6 +103,9 @@ function App() {
                   </Link>
                   <Link to="/about" className="nav-link text-light">
                     About Us
+                  </Link>
+                  <Link to="/contact" className="nav-link text-light">
+                    Contact Us
                   </Link>
                   {userInfo ? (
                     <NavDropdown title={userInfo.name} id="basic-nav-dropdown text-light">
@@ -152,7 +158,8 @@ function App() {
               <Route path="/products" element={<AllProducts />} />
               <Route path="/about" element={<AboutUs />} />
               <Route path="/homeproduct" element={<HomeProduct />} />
-
+              <Route path="/contact" element={<ContactForm />} />
+              <Route path="/success" element={<PaymentSuccess />} />
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
               <Route
                 path="/order/:id"
@@ -270,30 +277,30 @@ function App() {
                 </div>
 
 
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0 ">
                   <h5 class="text-uppercase mb-4">Category</h5>
 
-                  <ul class="list-unstyled">
+                  <ul class="list-unstyled ">
                     <li class="mb-2">
-                      <a href="#!" class="text-white">Laptop</a>
+                      <a href="#!" class="text-white text-decoration-none">Laptop</a>
                     </li>
                     <li class="mb-2">
-                      <a href="#!" class="text-white">Smart Tv</a>
+                      <a href="#!" class="text-white text-decoration-none">Smart Tv</a>
                     </li>
                     <li class="mb-2">
-                      <a href="#!" class="text-white">Camera</a>
+                      <a href="#!" class="text-white text-decoration-none">Camera</a>
                     </li>
                     <li class="mb-2">
-                      <a href="#!" class="text-white">Smartphone</a>
+                      <a href="#!" class="text-white text-decoration-none">Smartphone</a>
                     </li>
                     <li class="mb-2">
-                      <a href="#!" class="text-white">Tablet</a>
+                      <a href="#!" class="text-white text-decoration-none">Tablet</a>
                     </li>
                     <li class="mb-2">
-                      <a href="#!" class="text-white">Smart Watch</a>
+                      <a href="#!" class="text-white text-decoration-none">Smart Watch</a>
                     </li>
                     <li class="mb-2">
-                      <a href="#!" class="text-white">Graphics Tab</a>
+                      <a href="#!" class="text-white text-decoration-none">Graphics Tab</a>
                     </li>
                   </ul>
                 </div>
@@ -303,22 +310,22 @@ function App() {
 
                   <ul class="list-unstyled">
                     <li class="mb-2">
-                      <a href="#!" class="text-white">Apple</a>
+                      <a href="#!" class="text-white text-decoration-none">Apple</a>
                     </li>
                     <li class="mb-2">
-                      <a href="#!" class="text-white">Samsung</a>
+                      <a href="#!" class="text-white text-decoration-none">Samsung</a>
                     </li>
                     <li class="mb-2">
-                      <a href="#!" class="text-white">LG</a>
+                      <a href="#!" class="text-white text-decoration-none">LG</a>
                     </li>
                     <li class="mb-2">
-                      <a href="#!" class="text-white">Lenovo</a>
+                      <a href="#!" class="text-white text-decoration-none">Lenovo</a>
                     </li>
                     <li class="mb-2">
-                      <a href="#!" class="text-white">Oneplus</a>
+                      <a href="#!" class="text-white text-decoration-none">Oneplus</a>
                     </li>
                     <li class="mb-2">
-                      <a href="#!" class="text-white">Xiaomi</a>
+                      <a href="#!" class="text-white text-decoration-none">Xiaomi</a>
                     </li>
                   </ul>
                 </div>
@@ -336,8 +343,12 @@ function App() {
                     <li>
                       <p><i class="fas fa-envelope pe-2 mb-0"></i>electronicsshop@gmail.com</p>
                     </li>
+                    <li>
+                      <Link class="btn btn-danger text-white text-decoration-none" to='/contact'>Contact Us</Link>
+                    </li>
                   </ul>
                 </div>
+
 
               </div>
 

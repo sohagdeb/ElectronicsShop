@@ -90,11 +90,11 @@ export default function UserEditScreen() {
     }
   };
   return (
-    <Container className="small-container">
+    <Container className="small-container py-3 mt-5" style={{ boxShadow: "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px" }}>
       <Helmet>
         <title>Edit User ${userId}</title>
       </Helmet>
-      <h1>Edit User {name}</h1>
+
 
       {loading ? (
         <LoadingBox></LoadingBox>

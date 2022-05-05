@@ -29,8 +29,8 @@ export default function PaymentMethodScreen() {
     navigate('/placeorder');
   };
   return (
-    <div>
-      <div className="container small-container">
+    <div className='payment-container'>
+      <div className="container small-container mt-5">
         <Helmet>
           <title>Payment</title>
         </Helmet>

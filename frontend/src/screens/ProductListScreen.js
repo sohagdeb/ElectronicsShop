@@ -136,11 +136,9 @@ export default function ProductListScreen() {
   };
 
   return (
-    <div className='container'>
+    <div className='container my-3 py-3' style={{ boxShadow: "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px" }}>
       <Row>
-        <Col>
-          <h1>Products</h1>
-        </Col>
+
         <Col className="col text-end">
           <div>
             <Button type="button" onClick={createHandler}>
@@ -159,7 +157,7 @@ export default function ProductListScreen() {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
 
-        <div class="container table-responsive py-5">
+        <div class="container table-responsive my-2">
           <table class="table table-bordered table-hover">
             <thead class="thead-dark">
               <tr>

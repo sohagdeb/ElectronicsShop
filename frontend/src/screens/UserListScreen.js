@@ -92,7 +92,7 @@ export default function UserListScreen() {
       <Helmet>
         <title>Users</title>
       </Helmet>
-      <h1>Users</h1>
+
 
       {loadingDelete && <LoadingBox></LoadingBox>}
       {loading ? (
@@ -101,7 +101,7 @@ export default function UserListScreen() {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div class="container table-responsive py-5">
-          <table className="table table-bordered table-hover">
+          <table className="table table-bordered table-hover" style={{ boxShadow: "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px" }}>
             <thead>
               <tr>
                 <th>NAME</th>
@@ -138,7 +138,8 @@ export default function UserListScreen() {
             </tbody>
           </table>
         </div>
-      )}
-    </div>
+      )
+      }
+    </div >
   );
 }

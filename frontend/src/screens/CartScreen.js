@@ -47,7 +47,7 @@ export default function CartScreen() {
         <Col md={12} lg={12}>
           {cartItems.length === 0 ? (
             <MessageBox>
-              Cart is empty. <Link to="/search">Go Shopping</Link>
+              Cart is empty. <Link to="/search">Go to Shopping</Link>
             </MessageBox>
           ) : (
 

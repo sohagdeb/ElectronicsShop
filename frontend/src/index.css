@@ -149,7 +149,7 @@ button.thumbnail {
 
 /* home screen css */
 .carousel-css {
-  height: 600px;
+  height: 800px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -562,7 +562,6 @@ button.thumbnail {
 
 
 /* payment method screen */
-
 .container3 {
   position: relative;
   width: 100%;
@@ -673,9 +672,21 @@ button.thumbnail {
   width: 50%;
 }
 
+.pill {
+  border: 1px solid #000000;
+  background-color: #ffffffd8;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+}
+
+
+
 @media only screen and (max-width: 600px) {
   .search {
-    width: 80%
+    width: 100%
   }
 
   .homecardimg {
@@ -730,4 +741,98 @@ button.thumbnail {
 
 .productsearch2:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+
+
+
+/* brand */
+.brand {
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.brand:hover {
+  margin-top: -20px;
+
+}
+
+
+/* contact form */
+
+.btn-send {
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  width: 80%;
+  margin-left: 3px;
+}
+
+.help-block.with-errors {
+  color: #ff5050;
+  margin-top: 5px;
+
+}
+
+.card8 {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  transition: 0.5s;
+}
+
+.card8:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+
+
+/* Allproductcard */
+
+.allproduct {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  transition: 0.5s;
+  padding-bottom: 10px;
+  background: #FBFBFB;
+
+}
+
+.allproduct:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+
+
+
+/* testimonial carousel */
+
+.card9 {
+  background: rgb(237, 237, 237);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.card9:hover {
+  background: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+
+
+
+.border-cat:hover hr {
+  border: 2px solid #ff0800;
+}
+
+.search-card {
+  height: 800px;
+}
+
+@media only screen and (max-width: 600px) {
+  .search-card {
+    height: 100%;
+  }
 }

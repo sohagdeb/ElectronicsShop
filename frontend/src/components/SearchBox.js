@@ -16,17 +16,18 @@ export default function SearchBox() {
 
   return (
     <Form className="d-flex mx-auto mb-3 search mt-3 " onSubmit={submitHandler}>
-      <InputGroup className='w-75 mx-auto'>
+      <InputGroup className='w-100 mx-auto '>
         <FormControl
           type="text"
           name="q"
-          id="q"
+          id=""
+          className='pill'
           onChange={(e) => setQuery(e.target.value)}
           placeholder="search products..."
           aria-label="Search Products"
-          aria-describedby="button-search"
+          aria-describedby=""
         ></FormControl>
-        <Button variant="outline-primary" type="submit" id="button-search">
+        <Button style={{ backgroundColor: '#52017D' }} className='text-light' type="submit" id="button-search">
           Search
         </Button>
       </InputGroup>

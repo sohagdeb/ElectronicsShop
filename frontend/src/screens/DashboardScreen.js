@@ -55,7 +55,7 @@ export default function DashboardScreen() {
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <div class="row ">
+        <div class="row mt-5">
           <div class="col-xl-3 col-lg-6">
             <div class="card2 l-bg-cherry">
               <div class="card-statistic-3 p-4">
@@ -109,7 +109,7 @@ export default function DashboardScreen() {
                 <div class="row align-items-center mb-2 d-flex">
                   <div class="col-8">
                     <h2 class="d-flex align-items-center mb-0">
-                      $
+                      ৳
                       {summary.orders && summary.users[0]
                         ? summary.orders[0].totalSales.toFixed(2)
                         : 0}

@@ -1,12 +1,12 @@
 import axios from 'axios';
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import logger from 'use-reducer-logger';
-import AllProductCard from '../components/AllProductCard';
-import Product from '../components/Product';
-import ProductSearch2 from '../components/ProductSearch2';
-import '../index.css'
+import { getError } from '../utils';
+import AuctionProduct from './AuctionProduct';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -21,7 +21,7 @@ const reducer = (state, action) => {
     }
 };
 
-const AllProducts = () => {
+const Auction = () => {
     const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
         products: [],
         loading: true,
@@ -40,12 +40,15 @@ const AllProducts = () => {
         };
         fetchData();
     }, []);
+
+
     return (
-        <div className='container'>
+        <div className='container mt-5'>
+            <h1 className='text-center'><span>AUCTION</span> <span className='text-danger'>PRODUCTS</span></h1>
             <Row>
-                {products.map((product) => (
-                    <Col key={product.slug} xs={6} sm={6} md={3} lg={3} className="mb-3 mt-3">
-                        <AllProductCard product={product}></AllProductCard>
+                {products.slice(4, 8).map((product) => (
+                    <Col key={product.slug} sm={12} lg={6} className="mb-3">
+                        <AuctionProduct product={product}></AuctionProduct>
                     </Col>
                 ))}
             </Row>
@@ -53,4 +56,4 @@ const AllProducts = () => {
     );
 };
 
-export default AllProducts;
+export default Auction;

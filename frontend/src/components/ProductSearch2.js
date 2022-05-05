@@ -30,36 +30,6 @@ const ProductSearch2 = (props) => {
         });
     };
     return (
-        // <div class="card homecard" >
-        //     <div class="row g-0">
-        //         <div class="col-md-3 col-3">
-        //             <img src={product.image} width='50px' height='50px' class="img-fluid rounded-start" alt="..." />
-        //         </div>
-        //         <div class="col-md-6 col-6">
-        //             <div class="card-body">
-        //                 <h5 class="card-title">{product.name}</h5>
-
-        //                 <div class="ratings">  <Rating rating={product.rating} numReviews={product.numReviews} />
-        //                     <p><small className='text-danger'>only {product.countInStock} left in stock - order soon</small></p>
-
-        //                 </div>
-        //             </div>
-        //         </div>
-        //         <div class="col-md-3 col-3">
-        //             <h4 class="card-text">৳{product.price}</h4>
-        //             <Link to={`/product/${product.slug}`}>
-        //                 <button type="button" class="btn btn-danger btn-sm">View Product</button>
-        //             </Link>
-
-        //             {product.countInStock > 0 ? (
-        //                 <button onClick={() => addToCartHandler(product)} className="button btn btn-warning btn-sm mt-2">Add to Cart</button>
-        //             ) : (
-        //                 <button className="button btn btn-warning btn-sm mt-2" disabled>Add to Cart</button>
-        //             )}
-        //         </div>
-        //     </div>
-        // </div>
-
         <div>
 
 

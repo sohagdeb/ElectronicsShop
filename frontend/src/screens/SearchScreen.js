@@ -119,10 +119,10 @@ export default function SearchScreen() {
       <Row>
         <Col md={3}>
 
-          <div>
+          <div className='mt-5'>
             <ul className='me-4' style={{ listStyleType: 'none' }}>
               <h3 className='text-center'>Category</h3>
-              <li className='bg-warning text-center mb-2 border border-danger' >
+              <li className=' text-center mb-2 border-cat' >
 
                 <Link style={{ textDecoration: 'none', color: 'black', fontSize: '20px' }}
                   className={'all' === category ? 'text-bold text-danger ' : ''}
@@ -130,15 +130,18 @@ export default function SearchScreen() {
                 >
                   All
                 </Link>
+                <hr />
               </li>
+
               {categories.map((c) => (
-                <li className='bg-warning text-center mb-2 border border-danger' key={c}>
+                <li className=' text-center mb-2 border-cat' key={c}>
                   <Link style={{ textDecoration: 'none', color: 'black', fontSize: '20px' }}
                     className={c === category ? 'text-bold text-danger ' : ''}
                     to={getFilterUrl({ category: c })}
                   >
                     {c}
                   </Link>
+                  <hr />
                 </li>
               ))}
             </ul>
@@ -147,28 +150,30 @@ export default function SearchScreen() {
 
             <ul className='me-4' style={{ listStyleType: 'none' }}>
               <h3 className='text-center'>Price</h3>
-              <li className='bg-warning text-center mb-2 border border-danger'>
+              <li className=' text-center mb-2 border-cat'>
                 <Link style={{ textDecoration: 'none', color: 'black', fontSize: '20px' }}
                   className={'all' === price ? 'text-bold text-danger ' : ''}
                   to={getFilterUrl({ price: 'all' })}
                 >
                   All
                 </Link>
+                <hr />
               </li>
               {prices.map((p) => (
-                <li className='bg-warning text-center mb-2 border border-danger' key={p.value}>
+                <li className=' text-center mb-2 border-cat' key={p.value}>
                   <Link style={{ textDecoration: 'none', color: 'black', fontSize: '20px' }}
                     to={getFilterUrl({ price: p.value })}
                     className={p.value === price ? 'text-bold text-danger ' : ''}
                   >
                     {p.name}
                   </Link>
+                  <hr />
                 </li>
               ))}
             </ul>
           </div>
         </Col>
-        <Col md={9}>
+        <Col md={9} className='search-card'>
 
           {loading ? (
             <LoadingBox></LoadingBox>

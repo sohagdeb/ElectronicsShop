@@ -93,17 +93,17 @@ const HomeProduct = () => {
     };
 
     return (
-        <div className='container'>
-
+        <div className='container mt-5'>
+            <h1 className='text-center' ><span>FEATURED</span> <span className='text-danger'>PRODUCTS</span></h1>
             <Row>
                 <Col md={12}>
 
                     <div>
-                        <div className='me-4 text-center' style={{ listStyleType: 'none' }}>
+                        <div className='me-4 text-center mt-5' style={{ listStyleType: 'none' }}>
                             {categories.map((c) => (
-                                <p className='text-center ms-2 me-2' style={{ display: 'inline' }} key={c}>
+                                <p className='text-center ms-4 me-4' style={{ display: 'inline' }} key={c}>
                                     <Link style={{ textDecoration: 'none', color: 'black', fontSize: '20px' }}
-                                        className={c === category ? 'text-bold text-danger ' : ''}
+                                        className={c === category ? 'text-bold text-danger fs-3' : ''}
                                         to={getFilterUrl({ category: c })}
                                     >
                                         {c}

@@ -92,15 +92,15 @@ export default function OrderListScreen() {
       <Helmet>
         <title>Orders</title>
       </Helmet>
-      <h1>Orders</h1>
+
       {loadingDelete && <LoadingBox></LoadingBox>}
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <div class="container table-responsive py-5">
-          <table className="table table-bordered table-hover">
+        <div class="container table-responsive py-5" >
+          <table className="table table-bordered table-hover" style={{ boxShadow: "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px" }}>
             <thead>
               <tr>
                 <th>USER</th>
