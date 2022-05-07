@@ -6,6 +6,7 @@ import { Store } from '../Store';
 
 const AllProductCard = (props) => {
     const { product } = props;
+    console.log(product);
     return (
         <div>
             <Link to={`/product/${product.slug}`} style={{ textDecoration: 'none' }}>

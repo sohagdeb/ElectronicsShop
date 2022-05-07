@@ -90,9 +90,6 @@ function HomeScreen() {
         </Carousel.Item>
       </Carousel>
       <br />
-      <Auction></Auction>
-      <br />
-
       <HomeProduct></HomeProduct>
       <div className='text-center mt-5'>
         <Link to='/products'>
@@ -100,6 +97,9 @@ function HomeScreen() {
         </Link>
       </div>
 
+      <br />
+
+      <Auction></Auction>
       {/* <section class="section gray-bg mt-5 mb-5" id="blog">
         <div class="container">
           <div class="row justify-content-center">

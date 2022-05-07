@@ -24,6 +24,7 @@ productRouter.post(
       brand: ' ',
       countInStock: 0,
       rating: 0,
+      auction: ' ',
       numReviews: 0,
       description: ' ',
     });
@@ -47,6 +48,7 @@ productRouter.put(
       product.images = req.body.images;
       product.category = req.body.category;
       product.brand = req.body.brand;
+      product.auction = req.body.auction;
       product.countInStock = req.body.countInStock;
       product.description = req.body.description;
       await product.save();
@@ -234,5 +236,33 @@ productRouter.get('/:id', async (req, res) => {
     res.status(404).send({ message: 'Product Not Found' });
   }
 });
+
+
+
+
+productRouter.post(
+  '/auction',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const newProduct = new Product({
+      name: ' ',
+      slug: ' ',
+      auction: ' ',
+      image: '/images/p1.jpg',
+      price: 0,
+      category: ' ',
+      brand: ' ',
+      countInStock: 0,
+      rating: 0,
+      numReviews: 0,
+      description: ' ',
+    });
+    const product = await newProduct.save();
+    res.send({ message: 'Product Created', product });
+  })
+);
+
+
 
 export default productRouter;

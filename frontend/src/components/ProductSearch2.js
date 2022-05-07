@@ -1,16 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Rating from './Rating';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useContext } from 'react';
 import { Store } from '../Store';
-import Col from 'react-bootstrap/esm/Col';
 import '../index.css'
-import SearchBox from './SearchBox';
+
 
 const ProductSearch2 = (props) => {
     const { product } = props;
-
+    const navigate = useNavigate();
     const { state, dispatch: ctxDispatch } = useContext(Store);
     const {
         cart: { cartItems },
@@ -28,6 +26,7 @@ const ProductSearch2 = (props) => {
             type: 'CART_ADD_ITEM',
             payload: { ...item, quantity },
         });
+        navigate('/cart');
     };
     return (
         <div>

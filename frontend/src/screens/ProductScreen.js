@@ -170,11 +170,6 @@ function ProductScreen() {
 
 
 
-
-
-
-
-
       <div className="my-3 row">
         <div className='col-lg-4'>
           <h2 ref={reviewsRef}>Reviews</h2>

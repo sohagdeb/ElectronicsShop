@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Rating from './Rating';
 import axios from 'axios';
 import { useContext } from 'react';
@@ -9,7 +9,7 @@ import '../index.css'
 
 const ProductSearch = (props) => {
     const { product } = props;
-
+    const navigate = useNavigate();
     const { state, dispatch: ctxDispatch } = useContext(Store);
     const {
         cart: { cartItems },
@@ -27,6 +27,7 @@ const ProductSearch = (props) => {
             type: 'CART_ADD_ITEM',
             payload: { ...item, quantity },
         });
+        navigate('/cart');
     };
     return (
         <div class="card homecard" >

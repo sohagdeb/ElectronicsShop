@@ -62,12 +62,15 @@ export default function ProductEditScreen() {
   const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
   const [description, setDescription] = useState('');
+  const [auction, setAuction] = useState('');
+
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
         const { data } = await axios.get(`/api/products/${productId}`);
+
         setName(data.name);
         setSlug(data.slug);
         setPrice(data.price);
@@ -77,6 +80,7 @@ export default function ProductEditScreen() {
         setCountInStock(data.countInStock);
         setBrand(data.brand);
         setDescription(data.description);
+        setAuction(data.auction);
         dispatch({ type: 'FETCH_SUCCESS' });
       } catch (err) {
         dispatch({
@@ -86,7 +90,10 @@ export default function ProductEditScreen() {
       }
     };
     fetchData();
+
   }, [productId]);
+
+  console.log(auction);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -105,6 +112,7 @@ export default function ProductEditScreen() {
           brand,
           countInStock,
           description,
+          auction,
         },
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -190,6 +198,17 @@ export default function ProductEditScreen() {
               onChange={(e) => setPrice(e.target.value)}
               required
             />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="name">
+            <Form.Label>Auction</Form.Label>
+
+            <Form.Select onChange={(e) => setAuction(e.target.value)} value={auction} controlId="name">
+
+              <option>Select Option</option>
+              <option value="auction">Auction</option>
+
+            </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3" controlId="image">
             <Form.Label>Image File</Form.Label>

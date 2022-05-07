@@ -27,7 +27,7 @@ export default function SearchBox() {
           aria-label="Search Products"
           aria-describedby=""
         ></FormControl>
-        <Button style={{ backgroundColor: '#52017D' }} className='text-light' type="submit" id="button-search">
+        <Button style={{ borderTopRightRadius: '25px', borderBottomRightRadius: '25px' }} className='text-light' type="submit" id="button-search">
           Search
         </Button>
       </InputGroup>

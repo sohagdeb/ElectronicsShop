@@ -50,13 +50,6 @@ export default function CartScreen() {
               Cart is empty. <Link to="/search">Go to Shopping</Link>
             </MessageBox>
           ) : (
-
-
-
-
-
-
-
             <div class="card4">
               <div class="row cartrow">
                 <div class="col-md-8 cart4">
@@ -116,6 +109,9 @@ export default function CartScreen() {
                       </div>
                     </div>
                   ))}
+                  <div className='text-center'>
+                    <Link className='btn btn-danger mt-3' to='/search'>Buy more Products</Link>
+                  </div>
                 </div>
                 <div class="col-md-4 summary">
                   <div>
@@ -139,92 +135,10 @@ export default function CartScreen() {
                 </div>
               </div>
             </div>
-
-
-
-
-
-
-            // <ListGroup.Item key={item._id} style={{ backgroundColor: '#52017d' }}>
-            //   <Row className="align-items-center">
-            //     <Col md={2} xs={2}>
-            //       <img
-            //         style={{ width: '80px', height: '80px' }}
-            //         src={item.image}
-            //         alt={item.name}
-            //         className="img-fluid rounded img-thumbnail"
-            //       ></img>{' '}
-
-            //     </Col>
-
-            //     <Col md={3} xs={2}>
-            //       <Link to={`/product/${item.slug}`} style={{ textDecoration: 'none' }} className='text-light'>{item.name}</Link>
-            //     </Col>
-            //     <Col md={3} xs={4}>
-            //       <Button
-            //         onClick={() =>
-            //           updateCartHandler(item, item.quantity - 1)
-            //         }
-            //         variant="light"
-            //         disabled={item.quantity === 1}
-            //       >
-            //         -
-            //       </Button>{' '}
-            //       <span className='text-light'>{item.quantity}</span>{' '}
-            //       <Button
-            //         variant="light"
-            //         onClick={() =>
-            //           updateCartHandler(item, item.quantity + 1)
-            //         }
-            //         disabled={item.quantity === item.countInStock}
-            //       >
-            //         +
-            //       </Button>
-            //     </Col>
-            //     <Col md={2} xs={2} className='text-light'>${item.price}</Col>
-            //     <Col md={2} xs={2}>
-            //       <Button
-            //         onClick={() => removeItemHandler(item)}
-            //         variant="dark"
-            //       >
-            //         <i className="fas fa-trash text-danger"></i>
-            //       </Button>
-            //     </Col>
-            //   </Row>
-            // </ListGroup.Item>
-
-
           )
           }
+
         </Col >
-
-
-        {/* <Col md={4} className='text-center mx-auto mt-3'>
-          <Card style={{ height: '250px' }}>
-            <Card.Body>
-              <ListGroup variant="flush">
-                <ListGroup.Item>
-                  <h3>
-                    Subtotal  ${cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
-                  </h3>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <div className="d-grid">
-                    <Button
-                      type="button"
-                      variant="danger"
-                      onClick={checkoutHandler}
-                      disabled={cartItems.length === 0}
-                    >
-                      Proceed to Checkout
-                    </Button>
-                  </div>
-                </ListGroup.Item>
-              </ListGroup>
-            </Card.Body>
-          </Card>
-        </Col> */}
-
 
       </Row >
     </div >
