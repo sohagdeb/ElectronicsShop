@@ -8,12 +8,12 @@ const AllProductCard = (props) => {
     const { product } = props;
     console.log(product);
     return (
-        <div>
+        <div >
             <Link to={`/product/${product.slug}`} style={{ textDecoration: 'none' }}>
-                <div className='col-md-12 col-12 allproduct'  >
+                <div className='col-md-12 col-12 allproduct mb-3'  >
 
                     <div className='text-center'>
-                        <img className='mt-2' src={product.image} width='210px' height='210px' alt="" />
+                        <img className='mt-2' src={product.image} width='170px' height='170px' alt="" />
                     </div>
 
                     <div className='col-md-12 col-12 text-center'>

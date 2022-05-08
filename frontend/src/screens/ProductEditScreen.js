@@ -205,7 +205,7 @@ export default function ProductEditScreen() {
 
             <Form.Select onChange={(e) => setAuction(e.target.value)} value={auction} controlId="name">
 
-              <option>Select Option</option>
+              <option>Not Auction</option>
               <option value="auction">Auction</option>
 
             </Form.Select>

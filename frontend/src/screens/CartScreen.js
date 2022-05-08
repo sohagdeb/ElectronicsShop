@@ -38,7 +38,7 @@ export default function CartScreen() {
   };
 
   return (
-    <div className='container mt-3'>
+    <div className='container mt-5 mb-5'>
       <Helmet>
         <title>Shopping Cart</title>
       </Helmet>

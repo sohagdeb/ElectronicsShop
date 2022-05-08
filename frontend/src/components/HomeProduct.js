@@ -98,12 +98,18 @@ const HomeProduct = () => {
             <Row>
                 <Col md={12}>
 
-                    <div>
-                        <div className='me-4 text-center mt-5' style={{ listStyleType: 'none' }}>
+                    <div className='text-center mt-5 mb-5'>
+                        <div className=' text-center me-2 ms-2' style={{ display: 'inline' }}>
+                            <Link style={{ textDecoration: 'none', color: 'black', fontSize: '20px' }}
+                                className={'all' === category ? 'text-bold text-danger fs-4' : ''}
+                                to={getFilterUrl({ category: 'all' })}
+                            >
+                                All
+                            </Link>
                             {categories.map((c) => (
-                                <p className='text-center ms-4 me-4' style={{ display: 'inline' }} key={c}>
+                                <p className='text-center ms-2 me-2' style={{ display: 'inline' }} key={c}>
                                     <Link style={{ textDecoration: 'none', color: 'black', fontSize: '20px' }}
-                                        className={c === category ? 'text-bold text-danger fs-3' : ''}
+                                        className={c === category ? 'text-bold text-danger fs-4' : ''}
                                         to={getFilterUrl({ category: c })}
                                     >
                                         {c}
@@ -127,8 +133,8 @@ const HomeProduct = () => {
                             )}
 
                             <Row>
-                                {products.slice(0, 4).map((product) => (
-                                    <Col sm={12} lg={6} className="mb-3" key={product._id}>
+                                {products.slice(0, 8).map((product) => (
+                                    <Col xs={6} sm={6} lg={3} className="mb-3" key={product._id}>
                                         <ProductSearch product={product}></ProductSearch>
 
                                     </Col>

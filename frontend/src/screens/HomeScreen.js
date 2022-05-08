@@ -70,7 +70,7 @@ function HomeScreen() {
           <img
 
             className="d-block w-100 carousel-css"
-            src="https://www.iplace.com.br/file/general/banner-iplace-home-slides-081021-iphone-13-varejo-banner-1-desk-1.png"
+            src="https://www.mobilepoint.com.bd/wp-content/uploads/2021/09/oppo-f19-pro.png"
             alt="Second slide"
           />
           <div class="carousel-caption d-md-block" >
