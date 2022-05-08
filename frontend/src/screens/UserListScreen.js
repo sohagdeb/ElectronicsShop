@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
 import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet-async';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
@@ -88,58 +88,75 @@ export default function UserListScreen() {
     }
   };
   return (
-    <div className='container'>
-      <Helmet>
-        <title>Users</title>
-      </Helmet>
-
-
-      {loadingDelete && <LoadingBox></LoadingBox>}
-      {loading ? (
-        <LoadingBox></LoadingBox>
-      ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
-      ) : (
-        <div class="container table-responsive py-5">
-          <table className="table table-bordered table-hover" style={{ boxShadow: "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px" }}>
-            <thead>
-              <tr>
-                <th>NAME</th>
-                <th>EMAIL</th>
-                <th>ADMIN</th>
-                <th>ACTIONS</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users.map((user) => (
-                <tr key={user._id}>
-                  <td>{user.name}</td>
-                  <td>{user.email}</td>
-                  <td>{user.isAdmin ? 'YES' : 'NO'}</td>
-                  <td>
-                    <Button
-                      type="button"
-                      variant="light"
-                      onClick={() => navigate(`/admin/user/${user._id}`)}
-                    >
-                      Edit
-                    </Button>
-                    &nbsp;
-                    <Button
-                      type="button"
-                      variant="light"
-                      onClick={() => deleteHandler(user)}
-                    >
-                      Delete
-                    </Button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+    <div className='container mt-5 mb-5'>
+      <div className="row">
+        <div className="col-md-2 col-4 text-center " style={{ borderRightStyle: 'solid' }}>
+          <Link to="/admin/admindashboard" className="text-danger nav-link ">Dashboard</Link>
+          <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
+          <Link to="/admin/products" className=" nav-link ">Manage Products</Link>
+          <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
+          <Link to="/admin/orders" className="  nav-link">Manage Orders</Link>
+          <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
+          <Link to="/admin/users" className=" nav-link">Manage Users</Link>
+          <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
         </div>
-      )
-      }
-    </div >
+        <div className="col-md-10 col-8">
+          <div className='container'>
+            <Helmet>
+              <title>Users</title>
+            </Helmet>
+
+
+            {loadingDelete && <LoadingBox></LoadingBox>}
+            {loading ? (
+              <LoadingBox></LoadingBox>
+            ) : error ? (
+              <MessageBox variant="danger">{error}</MessageBox>
+            ) : (
+              <div class="container table-responsive py-5">
+                <table className="table table-bordered table-hover" style={{ boxShadow: "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px" }}>
+                  <thead>
+                    <tr>
+                      <th>NAME</th>
+                      <th>EMAIL</th>
+                      <th>ADMIN</th>
+                      <th>ACTIONS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {users.map((user) => (
+                      <tr key={user._id}>
+                        <td>{user.name}</td>
+                        <td>{user.email}</td>
+                        <td>{user.isAdmin ? 'YES' : 'NO'}</td>
+                        <td>
+                          <Button
+                            type="button"
+                            variant="light"
+                            onClick={() => navigate(`/admin/user/${user._id}`)}
+                          >
+                            Edit
+                          </Button>
+                          &nbsp;
+                          <Button
+                            type="button"
+                            variant="light"
+                            onClick={() => deleteHandler(user)}
+                          >
+                            Delete
+                          </Button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )
+            }
+          </div >
+        </div>
+
+      </div>
+    </div>
   );
 }

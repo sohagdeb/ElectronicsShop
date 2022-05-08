@@ -12,6 +12,7 @@ import SearchBox from '../components/SearchBox';
 import { Link } from 'react-router-dom';
 import HomeProduct from '../components/HomeProduct';
 import Auction from '../components/Auction';
+import Poppup from '../components/Poppup';
 
 
 const reducer = (state, action) => {
@@ -48,6 +49,7 @@ function HomeScreen() {
   }, []);
   return (
     <div>
+
       <Helmet>
         <title>Electronis Shop</title>
       </Helmet>
@@ -321,6 +323,11 @@ function HomeScreen() {
           </div>
         </div>
       </div>
+
+
+
+
+
 
 
 

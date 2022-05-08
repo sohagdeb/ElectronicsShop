@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import { Helmet } from 'react-helmet-async';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
@@ -90,53 +90,70 @@ export default function UserEditScreen() {
     }
   };
   return (
-    <Container className="small-container py-3 mt-5" style={{ boxShadow: "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px" }}>
-      <Helmet>
-        <title>Edit User ${userId}</title>
-      </Helmet>
+    <div className='container mt-5 mb-5'>
+      <div className="row">
+        <div className="col-md-2 col-4 text-center " style={{ borderRightStyle: 'solid' }}>
+          <Link to="/admin/admindashboard" className="text-danger nav-link ">Dashboard</Link>
+          <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
+          <Link to="/admin/products" className=" nav-link ">Manage Products</Link>
+          <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
+          <Link to="/admin/orders" className="  nav-link">Manage Orders</Link>
+          <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
+          <Link to="/admin/users" className=" nav-link">Manage Users</Link>
+          <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
+        </div>
+
+        <div className="col-md-10 col-8">
+          <Container className="small-container py-3 mt-5" style={{ boxShadow: "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px" }}>
+            <Helmet>
+              <title>Edit User ${userId}</title>
+            </Helmet>
 
 
-      {loading ? (
-        <LoadingBox></LoadingBox>
-      ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
-      ) : (
-        <Form onSubmit={submitHandler}>
-          <Form.Group className="mb-3" controlId="name">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="email">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              value={email}
-              type="email"
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </Form.Group>
+            {loading ? (
+              <LoadingBox></LoadingBox>
+            ) : error ? (
+              <MessageBox variant="danger">{error}</MessageBox>
+            ) : (
+              <Form onSubmit={submitHandler}>
+                <Form.Group className="mb-3" controlId="name">
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="email">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
+                    value={email}
+                    type="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </Form.Group>
 
-          <Form.Check
-            className="mb-3"
-            type="checkbox"
-            id="isAdmin"
-            label="isAdmin"
-            checked={isAdmin}
-            onChange={(e) => setIsAdmin(e.target.checked)}
-          />
+                <Form.Check
+                  className="mb-3"
+                  type="checkbox"
+                  id="isAdmin"
+                  label="isAdmin"
+                  checked={isAdmin}
+                  onChange={(e) => setIsAdmin(e.target.checked)}
+                />
 
-          <div className="mb-3">
-            <Button disabled={loadingUpdate} type="submit">
-              Update
-            </Button>
-            {loadingUpdate && <LoadingBox></LoadingBox>}
-          </div>
-        </Form>
-      )}
-    </Container>
+                <div className="mb-3">
+                  <Button disabled={loadingUpdate} type="submit">
+                    Update
+                  </Button>
+                  {loadingUpdate && <LoadingBox></LoadingBox>}
+                </div>
+              </Form>
+            )}
+          </Container>
+        </div>
+      </div>
+    </div>
   );
 }

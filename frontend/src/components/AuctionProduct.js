@@ -27,8 +27,8 @@ const AuctionProduct = (props) => {
         });
     };
     return (
-        <div class="card homecard" >
-            <Link className='text-decoration-none' to={`/product/${product.slug}`}>
+        <div>
+            <div class="card homecard" >
                 <div class="row g-0" >
                     <div class="col-md-4 col-4" >
                         <img src={product.image} width='150px' height='150px' class="img-fluid rounded-start homecardimg" alt="..." />
@@ -38,16 +38,16 @@ const AuctionProduct = (props) => {
                             <h5 class="card-title">{product.name}</h5>
 
                             <p class="card-text">৳{product.price}</p>
-                            <input className='auction-input' type="number" name="" id="" />
-                            <br />
-                            <button type="submit" class="btn btn-danger btn-sm mt-2">Bid</button>
-
+                            <Link className='text-decoration-none' to={`/auctionproduct/${product.slug}`}>
+                                <button>Bid Now</button>
+                            </Link>
                         </div>
                     </div>
 
                 </div>
-            </Link>
-        </div >
+
+            </div >
+        </div>
     );
 };
 

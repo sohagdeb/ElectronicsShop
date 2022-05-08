@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useReducer } from 'react';
 import { toast } from 'react-toastify';
 import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet-async';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { Store } from '../Store';
@@ -88,65 +88,89 @@ export default function OrderListScreen() {
   };
 
   return (
-    <div className='container'>
-      <Helmet>
-        <title>Orders</title>
-      </Helmet>
 
-      {loadingDelete && <LoadingBox></LoadingBox>}
-      {loading ? (
-        <LoadingBox></LoadingBox>
-      ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
-      ) : (
-        <div class="container table-responsive py-5" >
-          <table className="table table-bordered table-hover" style={{ boxShadow: "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px" }}>
-            <thead>
-              <tr>
-                <th>USER</th>
-                <th>DATE</th>
-                <th>TOTAL</th>
-                <th>DELIVERED</th>
-                <th>ACTIONS</th>
-              </tr>
-            </thead>
-            <tbody>
-              {orders.map((order) => (
-                <tr key={order._id}>
-
-                  <td>{order.user ? order.user.name : 'DELETED USER'}</td>
-                  <td>{order.createdAt.substring(0, 10)}</td>
-                  <td>{order.totalPrice.toFixed(2)}</td>
-                  <td>
-                    {order.isDelivered
-                      ? order.deliveredAt.substring(0, 10)
-                      : 'No'}
-                  </td>
-                  <td>
-                    <Button
-                      type="button"
-                      variant="light"
-                      onClick={() => {
-                        navigate(`/order/${order._id}`);
-                      }}
-                    >
-                      Details
-                    </Button>
-                    &nbsp;
-                    <Button
-                      type="button"
-                      variant="light"
-                      onClick={() => deleteHandler(order)}
-                    >
-                      Delete
-                    </Button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+    <div className='container mt-5 mb-5'>
+      <div className='row'>
+        <div className="col-md-2 col-4 text-center " style={{ borderRightStyle: 'solid' }}>
+          <Link to="/admin/admindashboard" className="text-danger nav-link ">Dashboard</Link>
+          <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
+          <Link to="/admin/products" className=" nav-link ">Manage Products</Link>
+          <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
+          <Link to="/admin/orders" className="  nav-link">Manage Orders</Link>
+          <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
+          <Link to="/admin/users" className=" nav-link">Manage Users</Link>
+          <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
         </div>
-      )}
+
+
+        <div className="col-md-10 col-8">
+
+          <div className='container'>
+            <Helmet>
+              <title>Orders</title>
+            </Helmet>
+
+            {loadingDelete && <LoadingBox></LoadingBox>}
+            {loading ? (
+              <LoadingBox></LoadingBox>
+            ) : error ? (
+              <MessageBox variant="danger">{error}</MessageBox>
+            ) : (
+              <div class="container table-responsive py-5" >
+                <table className="table table-bordered table-hover" style={{ boxShadow: "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px" }}>
+                  <thead>
+                    <tr>
+                      <th>USER</th>
+                      <th>DATE</th>
+                      <th>TOTAL</th>
+                      <th>DELIVERED</th>
+                      <th>ACTIONS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {orders.map((order) => (
+                      <tr key={order._id}>
+
+                        <td>{order.user ? order.user.name : 'DELETED USER'}</td>
+                        <td>{order.createdAt.substring(0, 10)}</td>
+                        <td>{order.totalPrice.toFixed(2)}</td>
+                        <td>
+                          {order.isDelivered
+                            ? order.deliveredAt.substring(0, 10)
+                            : 'No'}
+                        </td>
+                        <td>
+                          <Button
+                            type="button"
+                            variant="light"
+                            onClick={() => {
+                              navigate(`/order/${order._id}`);
+                            }}
+                          >
+                            Details
+                          </Button>
+                          &nbsp;
+                          <Button
+                            type="button"
+                            variant="light"
+                            onClick={() => deleteHandler(order)}
+                          >
+                            Delete
+                          </Button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+
+
+        </div>
+
+      </div>
     </div>
+
   );
 }

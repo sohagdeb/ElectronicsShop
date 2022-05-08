@@ -15,6 +15,7 @@ import ProductSearch from '../components/ProductSearch';
 import '../index.css'
 import ProductSearch2 from '../components/ProductSearch2';
 import SearchBox from '../components/SearchBox';
+import Poppup from '../components/Poppup';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -113,6 +114,7 @@ export default function SearchScreen() {
 
   return (
     <div className='container'>
+
       <Helmet>
         <title>Products</title>
       </Helmet>

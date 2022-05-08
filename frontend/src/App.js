@@ -38,6 +38,9 @@ import AboutUs from './screens/AboutUs';
 import HomeProduct from './components/HomeProduct';
 import ContactForm from './components/ContactForm';
 import PaymentSuccess from './components/PaymentSuccess';
+import AuctionProductScreen from './screens/AuctionProductScreen';
+import AdminDashboard from './components/AdminDashboard';
+import Poppup from './components/Poppup';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -80,6 +83,7 @@ function App() {
       >
         <ToastContainer position="bottom-center" limit={1} />
         <header>
+          <Poppup></Poppup>
           <Navbar style={{ backgroundColor: '#52017D' }} variant="dark" expand="lg">
             <Container>
 
@@ -127,20 +131,26 @@ function App() {
                     </Link>
                   )}
                   {userInfo && userInfo.isAdmin && (
-                    <NavDropdown title="Admin" id="admin-nav-dropdown" class="text-light">
-                      <LinkContainer to="/admin/dashboard">
-                        <NavDropdown.Item>Dashboard</NavDropdown.Item>
-                      </LinkContainer>
-                      <LinkContainer to="/admin/products">
-                        <NavDropdown.Item>Products</NavDropdown.Item>
-                      </LinkContainer>
-                      <LinkContainer to="/admin/orders">
-                        <NavDropdown.Item>Orders</NavDropdown.Item>
-                      </LinkContainer>
-                      <LinkContainer to="/admin/users">
-                        <NavDropdown.Item>Users</NavDropdown.Item>
-                      </LinkContainer>
-                    </NavDropdown>
+                    <Link to="/admin/admindashboard" className="nav-link text-light">
+                      Admin
+                    </Link>
+                    // <NavDropdown title="Admin" id="admin-nav-dropdown" class="text-light">
+                    //   <LinkContainer to="/admin/dashboard">
+                    //     <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                    //   </LinkContainer>
+                    //   <LinkContainer to="/admin/products">
+                    //     <NavDropdown.Item>Products</NavDropdown.Item>
+                    //   </LinkContainer>
+                    //   <LinkContainer to="/admin/orders">
+                    //     <NavDropdown.Item>Orders</NavDropdown.Item>
+                    //   </LinkContainer>
+                    //   <LinkContainer to="/admin/users">
+                    //     <NavDropdown.Item>Users</NavDropdown.Item>
+                    //   </LinkContainer>
+                    //   <LinkContainer to="/admin/admindashboard">
+                    //     <NavDropdown.Item>Admin Dashboard</NavDropdown.Item>
+                    //   </LinkContainer>
+                    // </NavDropdown>
                   )}
                 </Nav>
               </Navbar.Collapse>
@@ -151,6 +161,7 @@ function App() {
           <div>
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
+              <Route path="/auctionproduct/:slug" element={<AuctionProductScreen />} />
               <Route path="/cart" element={<ProtectedRoute><CartScreen /></ProtectedRoute>} />
               <Route path="/search" element={<SearchScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
@@ -215,6 +226,21 @@ function App() {
                   </AdminRoute>
                 }
               ></Route>
+
+
+
+              <Route
+                path="/admin/admindashboard"
+                element={
+                  <AdminRoute>
+                    <AdminDashboard />
+                  </AdminRoute>
+                }
+              ></Route>
+
+
+
+
               <Route
                 path="/admin/product/:id"
                 element={
@@ -240,6 +266,9 @@ function App() {
 
 
         <div >
+
+
+
 
           <footer style={{ backgroundColor: '#52017D' }} class=" text-center text-lg-start text-white">
 
