@@ -902,7 +902,7 @@ button.thumbnail {
 }
 
 .wrapper2 {
-  z-index: 400000;
+  z-index: 10000000;
   position: fixed;
   right: 20px;
   bottom: 100px;

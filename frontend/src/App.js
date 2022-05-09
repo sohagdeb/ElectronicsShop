@@ -373,7 +373,7 @@ function App() {
                       <p><i class="fas fa-envelope pe-2 mb-0"></i>electronicsshop@gmail.com</p>
                     </li>
                     <li>
-                      <Link class="btn btn-danger text-white text-decoration-none" to='/contact'>Contact Us</Link>
+                      <Link style={{ zIndex: '100000000000', position: "relative" }} class="btn btn-danger text-white text-decoration-none" to='/contact'>Contact Us</Link>
                     </li>
                   </ul>
                 </div>
