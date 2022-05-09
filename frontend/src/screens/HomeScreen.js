@@ -72,7 +72,7 @@ function HomeScreen() {
           <img
 
             className="d-block w-100 carousel-css"
-            src="https://www.mobilepoint.com.bd/wp-content/uploads/2021/09/oppo-f19-pro.png"
+            src="https://i.pinimg.com/originals/e3/56/4d/e3564db3fe0e206d9c4e866435e203c7.jpg"
             alt="Second slide"
           />
           <div class="carousel-caption d-md-block" >
