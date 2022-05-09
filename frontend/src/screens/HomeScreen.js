@@ -94,7 +94,7 @@ function HomeScreen() {
       <br />
       <HomeProduct></HomeProduct>
       <div className='text-center mt-5'>
-        <Link to='/products'>
+        <Link to='/search'>
           <button className='btn btn-warning'>See More </button>
         </Link>
       </div>

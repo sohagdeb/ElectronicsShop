@@ -7,12 +7,16 @@ import '../index.css'
 
 
 const ProductSearch2 = (props) => {
+
+
+
     const { product } = props;
     const navigate = useNavigate();
     const { state, dispatch: ctxDispatch } = useContext(Store);
     const {
-        cart: { cartItems },
+        cart: { cartItems }, userInfo
     } = state;
+    // console.log(userInfo);
 
     const addToCartHandler = async (item) => {
         const existItem = cartItems.find((x) => x._id === product._id);
@@ -41,11 +45,44 @@ const ProductSearch2 = (props) => {
                 <div className='col-md-12 col-12 text-center'>
                     <p className='text-dark'>{product.name}</p>
                     <p style={{ color: '#FF4436', fontWeight: '600, Semi Bold', fontSize: '20px' }}>৳{product.price}</p>
-                    {product.countInStock > 0 ? (
-                        <button onClick={() => addToCartHandler(product)} className="button btn btn-warning btn-sm">Add to Cart</button>
-                    ) : (
-                        <button className="button btn btn-warning btn-sm" disabled>Add to Cart</button>
-                    )}
+
+
+
+                    {/* {
+                        userInfo.isAdmin ? (
+                            <Link to='/admin/products'> <button class="button btn btn-warning btn-sm" type="button">Edit Product</button></Link>
+                        ) : (
+
+                            product.countInStock > 0 ? (
+                                <button onClick={() => addToCartHandler(product)} className="button btn btn-warning btn-sm">Add to Cart</button>
+                            ) : (
+                                <button className="button btn btn-warning btn-sm" disabled>Add to Cart</button>
+                            )
+
+
+
+                        )
+                    } */}
+
+                    {
+
+                        userInfo === null ? (product.countInStock > 0 ? (
+                            <button onClick={() => addToCartHandler(product)} className="button btn btn-warning btn-sm mt-2 homecardbtn">Add to Cart</button>
+                        ) : (
+                            <button className="button btn btn-warning btn-sm mt-2 homecardbtn" disabled>Add to Cart</button>
+                        )) : (userInfo.isAdmin ? (
+                            <Link to='/admin/products'> <button class="button btn btn-warning btn-sm mt-2 homecardbtn" type="button">Edit Product</button></Link>
+                        ) : (
+
+                            product.countInStock > 0 ? (
+                                <button onClick={() => addToCartHandler(product)} className="button btn btn-warning btn-sm mt-2 homecardbtn">Add to Cart</button>
+                            ) : (
+                                <button className="button btn btn-warning btn-sm mt-2 homecardbtn" disabled>Add to Cart</button>
+                            )
+
+                        ))
+                    }
+
 
 
                 </div>

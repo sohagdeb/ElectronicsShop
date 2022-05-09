@@ -10,7 +10,7 @@ const AuctionProduct = (props) => {
 
     const { state, dispatch: ctxDispatch } = useContext(Store);
     const {
-        cart: { cartItems },
+        cart: { cartItems }, userInfo
     } = state;
 
     const addToCartHandler = async (item) => {
@@ -38,9 +38,40 @@ const AuctionProduct = (props) => {
                             <h5 class="card-title">{product.name}</h5>
 
                             <p class="card-text">৳{product.price}</p>
-                            <Link className='text-decoration-none' to={`/auctionproduct/${product.slug}`}>
-                                <button>Bid Now</button>
-                            </Link>
+
+
+                            {/* 
+                            {
+                                userInfo.isAdmin ? (
+                                    <Link to='/admin/products'> <button class=" btn btn-danger btn-sm" type="button">Edit Product</button></Link>
+                                ) : (
+                                    <Link className='text-decoration-none' to={`/auctionproduct/${product.slug}`}>
+                                        <button>Bid Now</button>
+                                    </Link>
+                                )
+                            } */}
+
+
+
+                            {
+
+                                userInfo === null ? (<Link className='text-decoration-none' to={`/auctionproduct/${product.slug}`}>
+                                    <button>Bid Now</button>
+                                </Link>) : (userInfo.isAdmin ? (
+                                    <Link to='/admin/products'> <button class="button btn btn-warning btn-sm mt-2 homecardbtn" type="button">Edit Product</button></Link>
+                                ) : (
+
+                                    <Link className='text-decoration-none' to={`/auctionproduct/${product.slug}`}>
+                                        <button>Bid Now</button>
+                                    </Link>
+
+                                ))
+                            }
+
+
+
+
+
                         </div>
                     </div>
 

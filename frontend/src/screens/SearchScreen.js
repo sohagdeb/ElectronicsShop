@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useContext, useEffect, useReducer, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -16,6 +16,7 @@ import '../index.css'
 import ProductSearch2 from '../components/ProductSearch2';
 import SearchBox from '../components/SearchBox';
 import Poppup from '../components/Poppup';
+import { Store } from '../Store';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -54,6 +55,9 @@ const prices = [
 ];
 
 export default function SearchScreen() {
+
+
+
 
 
   const navigate = useNavigate();

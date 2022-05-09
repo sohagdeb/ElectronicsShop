@@ -91,13 +91,13 @@ export default function UserListScreen() {
     <div className='container mt-5 mb-5'>
       <div className="row">
         <div className="col-md-2 col-4 text-center " style={{ borderRightStyle: 'solid' }}>
-          <Link to="/admin/admindashboard" className="text-danger nav-link ">Dashboard</Link>
+          <Link to="/admin/admindashboard" className=" nav-link ">Dashboard</Link>
           <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
           <Link to="/admin/products" className=" nav-link ">Manage Products</Link>
           <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
           <Link to="/admin/orders" className="  nav-link">Manage Orders</Link>
           <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
-          <Link to="/admin/users" className=" nav-link">Manage Users</Link>
+          <Link to="/admin/users" className=" nav-link text-danger">Manage Users</Link>
           <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
         </div>
         <div className="col-md-10 col-8">

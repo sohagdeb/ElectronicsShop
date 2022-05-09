@@ -17,14 +17,14 @@ const ContactForm = () => {
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label style={{ color: "#333" }} for="form_name">Firstname *</label>
-                                                    <input id="form_name" type="text" name="name" class="form-control mb-4" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required." />
+                                                    <input id="form_name" type="text" pattern='[A-Za-z]{2,12}' name="name" class="form-control mb-4" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required." />
 
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label style={{ color: "#333" }} for="form_lastname">Lastname *</label>
-                                                    <input id="form_lastname" type="text" name="surname" class="form-control mb-4" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required." />
+                                                    <input id="form_lastname" pattern='[A-Za-z]{2,12}' type="text" name="surname" class="form-control mb-4" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required." />
                                                 </div>
                                             </div>
                                         </div>

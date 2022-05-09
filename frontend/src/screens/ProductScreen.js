@@ -69,6 +69,7 @@ function ProductScreen() {
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
+
   const addToCartHandler = async () => {
     const existItem = cart.cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
@@ -116,6 +117,8 @@ function ProductScreen() {
       toast.error(getError(error));
       dispatch({ type: 'CREATE_FAIL' });
     }
+
+
   };
   return loading ? (
     <LoadingBox />
@@ -155,11 +158,42 @@ function ProductScreen() {
 
 
 
-                {product.countInStock > 0 ? (
-                  <button onClick={addToCartHandler} class="add-to-cart btn btn-default" type="button">Add to Cart</button>
-                ) : (
-                  <button class="add-to-cart btn btn-default" type="button" disabled>Add to Cart</button>
-                )}
+
+                {/* {
+                  userInfo.isAdmin ? (
+                    <Link to='/admin/products'> <button class="add-to-cart btn btn-default" type="button">Edit Product</button></Link>
+                  ) : (
+
+                    product.countInStock > 0 ? (
+                      <button onClick={addToCartHandler} class="add-to-cart btn btn-default" type="button">Add to Cart</button>
+                    ) : (
+                      <button class="add-to-cart btn btn-default" type="button" disabled>Add to Cart</button>
+                    )
+
+
+                  )
+                } */}
+
+
+                {
+
+                  userInfo === null ? (product.countInStock > 0 ? (
+                    <button onClick={() => addToCartHandler(product)} className="button btn btn-warning btn-sm mt-2 homecardbtn">Add to Cart</button>
+                  ) : (
+                    <button className="button btn btn-warning btn-sm mt-2 homecardbtn" disabled>Add to Cart</button>
+                  )) : (userInfo.isAdmin ? (
+                    <Link to='/admin/products'> <button class="button btn btn-warning btn-sm mt-2 homecardbtn" type="button">Edit Product</button></Link>
+                  ) : (
+
+                    product.countInStock > 0 ? (
+                      <button onClick={() => addToCartHandler(product)} className="button btn btn-warning btn-sm mt-2 homecardbtn">Add to Cart</button>
+                    ) : (
+                      <button className="button btn btn-warning btn-sm mt-2 homecardbtn" disabled>Add to Cart</button>
+                    )
+
+                  ))
+                }
+
 
               </div>
             </div>

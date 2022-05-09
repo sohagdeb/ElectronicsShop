@@ -12,8 +12,9 @@ const ProductSearch = (props) => {
     const navigate = useNavigate();
     const { state, dispatch: ctxDispatch } = useContext(Store);
     const {
-        cart: { cartItems },
+        cart: { cartItems }, userInfo
     } = state;
+    console.log(userInfo);
 
     const addToCartHandler = async (item) => {
         const existItem = cartItems.find((x) => x._id === product._id);
@@ -30,37 +31,6 @@ const ProductSearch = (props) => {
         navigate('/cart');
     };
     return (
-        // <div class="card homecard" >
-        //     <div class="row g-0" >
-        //         <div class="col-md-3 col-2" >
-        //             <img src={product.image} width='150px' height='150px' class="img-fluid rounded-start homecardimg" alt="..." />
-        //         </div>
-        //         <div class="col-md-6 col-7">
-        //             <div class="card-body">
-        //                 <h5 class="card-title">{product.name}</h5>
-
-        //                 <div class="ratings">  <Rating rating={product.rating} numReviews={product.numReviews} />
-        //                     <p><small className='text-danger'>only {product.countInStock} left in stock - order soon</small></p>
-
-        //                 </div>
-        //             </div>
-        //         </div>
-        //         <div class="col-md-3 col-3">
-        //             <p class="card-text">৳{product.price}</p>
-        //             <Link to={`/product/${product.slug}`}>
-        //                 <button type="button" class="btn btn-danger btn-sm homecardbtn">View Product</button>
-        //             </Link>
-
-        //             {product.countInStock > 0 ? (
-        //                 <button onClick={() => addToCartHandler(product)} className="button btn btn-warning btn-sm mt-2 homecardbtn">Add to Cart</button>
-        //             ) : (
-        //                 <button className="button btn btn-warning btn-sm mt-2 homecardbtn" disabled>Add to Cart</button>
-        //             )}
-        //         </div>
-        //     </div>
-        // </div>
-
-
 
         <div>
 
@@ -80,11 +50,34 @@ const ProductSearch = (props) => {
                     </div>
                     <p style={{ color: '#FF4436', fontWeight: '600, Semi Bold', fontSize: '20px' }}>৳{product.price}</p>
 
-                    {product.countInStock > 0 ? (
-                        <button onClick={() => addToCartHandler(product)} className="button btn btn-warning btn-sm mt-2 homecardbtn">Add to Cart</button>
-                    ) : (
-                        <button className="button btn btn-warning btn-sm mt-2 homecardbtn" disabled>Add to Cart</button>
-                    )}
+
+                    {
+
+                        userInfo === null ? (product.countInStock > 0 ? (
+                            <button onClick={() => addToCartHandler(product)} className="button btn btn-warning btn-sm mt-2 homecardbtn">Add to Cart</button>
+                        ) : (
+                            <button className="button btn btn-warning btn-sm mt-2 homecardbtn" disabled>Add to Cart</button>
+                        )) : (userInfo.isAdmin ? (
+                            <Link to='/admin/products'> <button class="button btn btn-warning btn-sm mt-2 homecardbtn" type="button">Edit Product</button></Link>
+                        ) : (
+
+                            product.countInStock > 0 ? (
+                                <button onClick={() => addToCartHandler(product)} className="button btn btn-warning btn-sm mt-2 homecardbtn">Add to Cart</button>
+                            ) : (
+                                <button className="button btn btn-warning btn-sm mt-2 homecardbtn" disabled>Add to Cart</button>
+                            )
+
+                        ))
+                    }
+
+
+                    {/* {
+
+                        userInfo.isAdmin ? '' : userInfo.isAdmin ? '' : ''
+                    } */}
+
+
+
                 </div>
             </div>
 
