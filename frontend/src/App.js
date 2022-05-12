@@ -41,6 +41,7 @@ import PaymentSuccess from './components/PaymentSuccess';
 import AuctionProductScreen from './screens/AuctionProductScreen';
 import AdminDashboard from './components/AdminDashboard';
 import Poppup from './components/Poppup';
+import Review from './components/Review';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -108,6 +109,13 @@ function App() {
                   <Link to="/about" className="nav-link text-light">
                     About Us
                   </Link>
+                  {userInfo && (
+                    <Link to="/reviews" className="nav-link text-light">
+                      Review
+                    </Link>
+                  )
+
+                  }
                   <Link to="/contact" className="nav-link text-light">
                     Contact Us
                   </Link>
@@ -172,6 +180,7 @@ function App() {
               <Route path="/contact" element={<ContactForm />} />
               <Route path="/success" element={<PaymentSuccess />} />
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
+              <Route path="/reviews" element={<Review />} />
               <Route
                 path="/order/:id"
                 element={

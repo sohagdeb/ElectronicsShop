@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import HomeProduct from '../components/HomeProduct';
 import Auction from '../components/Auction';
 import Poppup from '../components/Poppup';
+import DisplayReviews from '../components/DisplayReviews';
 
 
 const reducer = (state, action) => {
@@ -269,59 +270,7 @@ function HomeScreen() {
       <div className='container mb-5 mt-5'>
 
         <h1 className='text-center mb-5'><span>What people think of</span> <span className='text-danger'>ELECTRONICS SHOP</span></h1>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div class="col ">
-            <div class="card9 text-center py-5">
-              <img src="/images/client1.jpg" style={{ borderRadius: '50%' }} height='100px' width='100px' class="mx-auto d-block" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title text-danger">ANTONIO MORENO</h5>
-                <ul class="list-inline text-warning">
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                  <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-                </ul>
-                <p class="card-text">Really good, you have saved our business! I made bacck the purchase price in just 48 hours!
-                  man, this thing is getting better and better as I learn more about it.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card9 text-center py-5">
-              <img src="/images/client2.jpg" style={{ borderRadius: '50%' }} height='100px' width='100px' class="mx-auto d-block" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title text-danger">PAULA WILSON</h5>
-                <ul class="list-inline text-warning">
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                </ul>
-                <p class="card-text">Really good, you have saved our business! I made bacck the purchase price in just 48 hours!
-                  man, this thing is getting better and better as I learn more about it.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card9 text-center py-5">
-              <img src="/images/client3.jpg" style={{ borderRadius: '50%' }} height='100px' width='100px' class="mx-auto d-block" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title text-danger">MICHAEL HOLZ</h5>
-                <ul class="list-inline text-warning">
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                </ul>
-                <p class="card-text">Really good, you have saved our business! I made bacck the purchase price in just 48 hours!
-                  man, this thing is getting better and better as I learn more about it.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <DisplayReviews></DisplayReviews>
       </div>
 
 

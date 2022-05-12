@@ -1,3 +1,6 @@
+import cors from 'cors';
+import { MongoClient, ObjectId } from 'mongodb';
+
 import express from 'express';
 import path from 'path';
 import mongoose from 'mongoose';
@@ -7,6 +10,8 @@ import productRouter from './routes/productRoutes.js';
 import userRouter from './routes/userRoutes.js';
 import orderRouter from './routes/orderRoutes.js';
 import uploadRouter from './routes/uploadRoutes.js';
+
+
 
 dotenv.config();
 
@@ -20,6 +25,66 @@ mongoose
   });
 
 const app = express();
+
+app.use(cors())
+
+const client = new MongoClient(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+async function run() {
+  try {
+    await client.connect();
+    const database = client.db('Ecommerce');
+    const reviewCollection = database.collection('review');
+
+    app.post('/review', async (req, res) => {
+      const review = req.body;
+      const result = await reviewCollection.insertOne(review);
+      res.json(result);
+      console.log('review');
+    });
+    app.post('/all/review', async (req, res) => {
+      const cursor = reviewCollection.find({});
+      const result = await cursor.toArray();
+      res.send(result);
+      console.log('hello');
+    });
+    // app.delete('/review/:id', async (req, res) => {
+    //   // const id = req.params.id;
+    //   // const query = { _id: ObjectId(id) };
+    //   try {
+    //     const result = await reviewCollection.deleteOne(ObjectId(req.params.id));
+    //     res.json(result);
+    //   } catch (e) {
+    //     console.log(e);
+    //   }
+
+    // });
+
+    app.delete('/review/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: ObjectId(id) };
+      const result = await reviewCollection.deleteOne(query);
+      res.json(result);
+    });
+
+
+    // app.delete('/review/:id', async (req, res) => {
+    //   try {
+    //     const removeStudent = await reviewCollection.findByIdAndRemove(req.params.id);
+    //     res.send({ message: 'The student was removed' });
+    //   } catch (err) {
+    //     res.status(400).send({ error: err });
+    //   }
+    // });
+
+  }
+  finally {
+    // await client.close();
+  }
+};
+run().catch(console.dir);
+
+
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -51,3 +116,5 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`serve at http://localhost:${port}`);
 });
+
+
