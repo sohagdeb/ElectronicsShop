@@ -13,7 +13,7 @@ const Review = () => {
     const { register, handleSubmit, reset } = useForm();
     const { state } = useContext(Store);
     const { userInfo } = state;
-    // console.log(userInfo);
+    console.log(userInfo);
 
 
     const onSubmit = data => {
