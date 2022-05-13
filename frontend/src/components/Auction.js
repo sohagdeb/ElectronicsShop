@@ -1,11 +1,9 @@
 import axios from 'axios';
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import logger from 'use-reducer-logger';
-import { getError } from '../utils';
+
 import AuctionProduct from './AuctionProduct';
 
 const reducer = (state, action) => {

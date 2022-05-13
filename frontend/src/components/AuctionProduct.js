@@ -40,19 +40,6 @@ const AuctionProduct = (props) => {
                             <p class="card-text">৳{product.price}</p>
 
 
-                            {/* 
-                            {
-                                userInfo.isAdmin ? (
-                                    <Link to='/admin/products'> <button class=" btn btn-danger btn-sm" type="button">Edit Product</button></Link>
-                                ) : (
-                                    <Link className='text-decoration-none' to={`/auctionproduct/${product.slug}`}>
-                                        <button>Bid Now</button>
-                                    </Link>
-                                )
-                            } */}
-
-
-
                             {
 
                                 userInfo === null ? (<Link className='text-decoration-none' to={`/auctionproduct/${product.slug}`}>

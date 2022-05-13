@@ -39,25 +39,13 @@ async function run() {
       const review = req.body;
       const result = await reviewCollection.insertOne(review);
       res.json(result);
-      console.log('review');
+
     });
     app.post('/all/review', async (req, res) => {
       const cursor = reviewCollection.find({});
       const result = await cursor.toArray();
       res.send(result);
-      console.log('hello');
     });
-    // app.delete('/review/:id', async (req, res) => {
-    //   // const id = req.params.id;
-    //   // const query = { _id: ObjectId(id) };
-    //   try {
-    //     const result = await reviewCollection.deleteOne(ObjectId(req.params.id));
-    //     res.json(result);
-    //   } catch (e) {
-    //     console.log(e);
-    //   }
-
-    // });
 
     app.delete('/review/:id', async (req, res) => {
       const id = req.params.id;
@@ -66,15 +54,6 @@ async function run() {
       res.json(result);
     });
 
-
-    // app.delete('/review/:id', async (req, res) => {
-    //   try {
-    //     const removeStudent = await reviewCollection.findByIdAndRemove(req.params.id);
-    //     res.send({ message: 'The student was removed' });
-    //   } catch (err) {
-    //     res.status(400).send({ error: err });
-    //   }
-    // });
 
   }
   finally {

@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { Store } from '../Store';
-import DisplayReviews from './DisplayReviews';
+
 
 
 
@@ -38,10 +38,6 @@ const Review = () => {
                     <label for="exampleInputEmail1" class="form-label">Name</label>
                     <input {...register("Name")} value={userInfo.name} type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
 
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input {...register("Email")} value={userInfo.email} type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlSelect2">Rating Value</label>
