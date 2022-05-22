@@ -153,13 +153,7 @@ export default function ProductEditScreen() {
       dispatch({ type: 'UPLOAD_FAIL', payload: getError(err) });
     }
   };
-  // const deleteFileHandler = async (fileName, f) => {
-  //   console.log(fileName, f);
-  //   console.log(images);
-  //   console.log(images.filter((x) => x !== fileName));
-  //   setImages(images.filter((x) => x !== fileName));
-  //   toast.success('Image removed successfully. click Update to apply it');
-  // };
+ 
 
 
   return (
@@ -173,6 +167,8 @@ export default function ProductEditScreen() {
           <Link to="/admin/orders" className="  nav-link">Manage Orders</Link>
           <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
           <Link to="/admin/users" className=" nav-link">Manage Users</Link>
+          <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
+          <Link to="/admin/auction" className=" nav-link">Auction</Link>
           <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
         </div>
 

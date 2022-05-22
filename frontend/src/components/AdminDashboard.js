@@ -18,34 +18,13 @@ const AdminDashboard = () => {
                     <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
                     <Link to="/admin/users" className=" nav-link">Manage Users</Link>
                     <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
+                    <Link to="/admin/auction" className=" nav-link">Auction</Link>
+          <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
                 </div>
                 <div className="col-md-10 col-8">
                     <DashboardScreen></DashboardScreen>
                 </div>
             </div>
-
-
-
-            {/* <HashRouter>
-                    <div className="row">
-                        <div className="col-md-3">
-                            <Link to="/admin/products" className="p-3 mb-2 nav-link">Manage Products</Link>
-                            <Link to="/admin/orders" className="p-3 mb-2 nav-link">Manage Orders</Link>
-                            <Link to="/admin/users" className="p-3 mb-2 nav-link">Manage Users</Link>
-
-                        </div>
-                        <div className="col-md-9">
-                            <div className="container" >
-
-                                <Route exact path="/" component={DashboardScreen} />
-                                <Route exact path="/admin/products" component={ProductListScreen} />
-                                <Route path="/admin/orders" component={OrderListScreen} />
-                                <Route path="/admin/users" component={UserListScreen} />
-
-                            </div>
-                        </div>
-                    </div>
-                </HashRouter> */}
 
         </div>
     );

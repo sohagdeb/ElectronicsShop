@@ -34,6 +34,7 @@ async function run() {
     await client.connect();
     const database = client.db('Ecommerce');
     const reviewCollection = database.collection('review');
+    const auctionCollection = database.collection('auction');
 
     app.post('/review', async (req, res) => {
       const review = req.body;
@@ -51,6 +52,25 @@ async function run() {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
       const result = await reviewCollection.deleteOne(query);
+      res.json(result);
+    });
+
+
+    app.post('/auction', async (req, res) => {
+      const review = req.body;
+      const result = await auctionCollection.insertOne(review);
+      res.json(result);
+
+    });
+    app.post('/all/auction', async (req, res) => {
+      const cursor = auctionCollection.find({});
+      const result = await cursor.toArray();
+      res.send(result);
+    });
+    app.delete('/auction/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: ObjectId(id) };
+      const result = await auctionCollection.deleteOne(query);
       res.json(result);
     });
 

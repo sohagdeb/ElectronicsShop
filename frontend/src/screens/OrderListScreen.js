@@ -100,6 +100,8 @@ export default function OrderListScreen() {
           <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
           <Link to="/admin/users" className=" nav-link">Manage Users</Link>
           <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
+          <Link to="/admin/auction" className=" nav-link">Auction</Link>
+          <hr style={{ backgroundColor: '#52017d', height: '3px' }} />
         </div>
 
 

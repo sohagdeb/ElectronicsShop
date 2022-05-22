@@ -13,11 +13,11 @@ const Review = () => {
     const { register, handleSubmit, reset } = useForm();
     const { state } = useContext(Store);
     const { userInfo } = state;
-    console.log(userInfo);
+  
 
 
     const onSubmit = data => {
-        console.log(data);
+      
         axios.post('/review', data)
             .then(res => {
                 if (res.data.insertedId) {

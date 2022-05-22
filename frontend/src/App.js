@@ -42,6 +42,8 @@ import AuctionProductScreen from './screens/AuctionProductScreen';
 import AdminDashboard from './components/AdminDashboard';
 import Poppup from './components/Poppup';
 import Review from './components/Review';
+import DisplayAuctions from './screens/DisplayAuctions';
+import AdminAuction from './screens/AdminAuction';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -181,6 +183,7 @@ function App() {
               <Route path="/success" element={<PaymentSuccess />} />
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
               <Route path="/reviews" element={<Review />} />
+              <Route path="/auction" element={<DisplayAuctions />} />
               <Route
                 path="/order/:id"
                 element={
@@ -243,6 +246,14 @@ function App() {
                 element={
                   <AdminRoute>
                     <AdminDashboard />
+                  </AdminRoute>
+                }
+              ></Route>
+              <Route
+                path="/admin/auction"
+                element={
+                  <AdminRoute>
+                    <AdminAuction/>
                   </AdminRoute>
                 }
               ></Route>
